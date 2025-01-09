@@ -1,0 +1,6 @@
+@Sistema_de_Gerenciamento_de_Consultas_Médicas_HostAddress = http://localhost:5111
+
+GET {{Sistema_de_Gerenciamento_de_Consultas_Médicas_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
