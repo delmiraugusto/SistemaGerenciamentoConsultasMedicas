@@ -2,7 +2,7 @@
 
 namespace Sistema_de_Gerenciamento_de_Consultas_Médicas.Domain.Entities;
 
-public class Patient : Pessoa
+public class Patient : Person
 {
     public int Id { get; set; }
     public string Age { get; set; }

@@ -7,8 +7,8 @@ public interface IConsultService
 {
     Task<IEnumerable<ConsultDTO>> GetPatientAsync(int idPatient);
     Task<IEnumerable<ConsultDTO>> GetDoctorAsync(int idDoctor);
-    Task<ConsultDTO> GetByAsync(int id);
+    Task<ConsultDTO> GetByIdAsync(int id);
     Task AddAsync(ConsultDTO consultDTO);
-    Task UpdateAsync(ConsultDTO consultDTO);
+    Task UpdateAsync(int id, ConsultDTO consultDTO);
     Task CancelAsync(int id);
 }

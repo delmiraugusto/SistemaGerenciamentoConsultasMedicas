@@ -6,7 +6,6 @@ namespace Sistema_de_Gerenciamento_de_Consultas_Médicas.Domain.IRepository
     {
         Task<IEnumerable<Doctor>> GetAllAsync();
         Task<Doctor> GetByEmailAsync(string email);
-
         Task<Doctor> GetByIdAsync(int id);
         Task AddAsync(Doctor doctor);
         Task UpdateAsync(Doctor doctor);

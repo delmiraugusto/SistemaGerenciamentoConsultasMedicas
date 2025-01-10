@@ -1,0 +1,22 @@
+[
+  {
+    "ContainingType": "Sistema_de_Gerenciamento_de_Consultas_M\u00E9dicas.Controllers.DoctorController",
+    "Method": "GetAllAsync",
+    "RelativePath": "api/Doctor",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[Sistema_de_Gerenciamento_de_Consultas_M\u00E9dicas.Application.DTO.DoctorDTO, Sistema de Gerenciamento de Consultas M\u00E9dicas, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  }
+]

@@ -1,4 +1,27 @@
+using Sistema_de_Gerenciamento_de_Consultas_Médicas.Application.ServiceApp;
+using Sistema_de_Gerenciamento_de_Consultas_Médicas.Data;
+using Sistema_de_Gerenciamento_de_Consultas_Médicas.Domain.Infrastructure;
+using Sistema_de_Gerenciamento_de_Consultas_Médicas.Domain.IRepository;
+using Sistema_de_Gerenciamento_de_Consultas_Médicas.Domain.IService;
+
 var builder = WebApplication.CreateBuilder(args);
+
+var Configuration = builder.Configuration;
+
+builder.Services.AddScoped<IDoctorService, DoctorService>();
+builder.Services.AddScoped<IDoctorRepository, DoctorRepository>();
+
+
+builder.Services.AddControllers();
+builder.Services.AddEndpointsApiExplorer();
+
+var connectionString = builder.Configuration.GetConnectionString("PostgreSQLConnection");
+
+// Registrando o PostgresConnection com a ConnectionString
+builder.Services.AddScoped<PostgresConnection>(provider =>
+{
+    return new PostgresConnection(connectionString);
+});
 
 // Add services to the container.
 

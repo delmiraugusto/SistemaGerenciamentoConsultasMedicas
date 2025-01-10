@@ -18,16 +18,16 @@ public class ConsultRepository : IConsultRepository
     public async Task<IEnumerable<Consult>> GetPatientAsync(int idPatient)
     {
         var query = @"
-    SELECT 
-        c.id AS Id,
-        c.description AS Description, 
-        c.DateTimeQuery,  
-        m.id AS DoctorId,
-        m.Name AS DoctorName, 
-        m.Speciality AS DoctorSpeciality
-    FROM Consult c
-    JOIN Doctor m ON c.id_doctor = m.id
-    WHERE c.id_patient = @IdPatient AND c.IsCanceled = 0";
+        SELECT 
+            c.id AS Id,
+            c.description AS Description, 
+            c.DateTimeQuery,  
+            m.id AS DoctorId,
+            m.Name AS DoctorName, 
+            m.specialty AS DoctorSpecialty -- Corrigido para o nome correto da coluna
+        FROM Consult c
+        JOIN Doctor m ON c.id_doctor = m.id
+        WHERE c.id_patient = @IdPatient AND c.IsCanceled = 0";
 
         using (var connection = _dbConnection.GetConnection())
         {
@@ -39,12 +39,13 @@ public class ConsultRepository : IConsultRepository
                     return consult;
                 },
                 new { IdPatient = idPatient },
-                splitOn: "DoctorId" 
+                splitOn: "DoctorId"
             );
 
             return consults;
         }
     }
+
 
     public async Task<IEnumerable<Consult>> GetDoctorAsync(int idDoctor)
     {
@@ -74,24 +75,52 @@ public class ConsultRepository : IConsultRepository
                     return consult;
                 },
                 new { IdDoctor = idDoctor },
-                splitOn: "PatientId,DoctorId"
+                splitOn: "id_patient,id_doctor"
             );
 
             return consults;
         }
     }
 
-    public async Task<Consult> GetByAsync(int id)
+
+    public async Task<Consult> GetByIdAsync(int id)
     {
-        var query = "SELECT * FROM Consult WHERE id = @Id";
+        var query = @"
+        SELECT 
+            c.id AS Id, 
+            c.description AS Description, 
+            c.DateTimeQuery, 
+            c.IsCanceled,
+            p.id AS PatientId, 
+            p.Name AS PatientName,
+            m.id AS DoctorId, 
+            m.Name AS DoctorName,
+            m.specialty AS DoctorSpecialty
+        FROM Consult c
+        JOIN Patient p ON c.id_patient = p.id
+        JOIN Doctor m ON c.id_doctor = m.id
+        WHERE c.id = @Id";
+
         using (var connection = _dbConnection.GetConnection())
         {
-            var consult = await connection.QueryFirstOrDefaultAsync<Consult>(query, new { Id = id });
-            return consult == null ? throw new KeyNotFoundException($"Consulta com o ID {id} não foi encontrada.") : consult;
+            var consult = await connection.QueryAsync<Consult, Patient, Doctor, Consult>(
+                query,
+                (consult, patient, doctor) =>
+                {
+                    consult.IdPatient = patient;
+                    consult.IdDoctor = doctor;
+                    return consult;
+                },
+                new { Id = id },
+                splitOn: "PatientId,DoctorId"
+            );
+
+            return consult.FirstOrDefault() ?? throw new KeyNotFoundException($"Consulta com o ID {id} não foi encontrada.");
         }
     }
 
-    public async Task AddAsync(Consult consult)
+
+    public async Task UpdateAsync(Consult consult)
     {
             var query = "UPDATE Consult SET Description = @Description, DateTimeQuery = @DateTimeQuery WHERE Id = @Id";
             using (var connection = _dbConnection.GetConnection())
@@ -100,7 +129,7 @@ public class ConsultRepository : IConsultRepository
             }
     }
 
-    public async Task UpdateAsync(Consult consult)
+    public async Task AddAsync(Consult consult)
     {
         var query = "INSERT INTO Consult (Description, DateTimeQuery, PatientId, DoctorId) VALUES (@Description, @DateTimeQuery, @PatientId, @DoctorId)";
         using (var connection = _dbConnection.GetConnection()) 

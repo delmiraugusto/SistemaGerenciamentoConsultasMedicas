@@ -1,0 +1,37 @@
+C:\Users\Augusto\Documents\Sistema de Gerenciamento de Consultas Médicas\Sistema de Gerenciamento de Consultas Médicas\bin\Debug\net9.0\appsettings.Development.json
+C:\Users\Augusto\Documents\Sistema de Gerenciamento de Consultas Médicas\Sistema de Gerenciamento de Consultas Médicas\bin\Debug\net9.0\appsettings.json
+C:\Users\Augusto\Documents\Sistema de Gerenciamento de Consultas Médicas\Sistema de Gerenciamento de Consultas Médicas\bin\Debug\net9.0\Sistema de Gerenciamento de Consultas Médicas.staticwebassets.endpoints.json
+C:\Users\Augusto\Documents\Sistema de Gerenciamento de Consultas Médicas\Sistema de Gerenciamento de Consultas Médicas\bin\Debug\net9.0\Sistema de Gerenciamento de Consultas Médicas.exe
+C:\Users\Augusto\Documents\Sistema de Gerenciamento de Consultas Médicas\Sistema de Gerenciamento de Consultas Médicas\bin\Debug\net9.0\Sistema de Gerenciamento de Consultas Médicas.deps.json
+C:\Users\Augusto\Documents\Sistema de Gerenciamento de Consultas Médicas\Sistema de Gerenciamento de Consultas Médicas\bin\Debug\net9.0\Sistema de Gerenciamento de Consultas Médicas.runtimeconfig.json
+C:\Users\Augusto\Documents\Sistema de Gerenciamento de Consultas Médicas\Sistema de Gerenciamento de Consultas Médicas\bin\Debug\net9.0\Sistema de Gerenciamento de Consultas Médicas.dll
+C:\Users\Augusto\Documents\Sistema de Gerenciamento de Consultas Médicas\Sistema de Gerenciamento de Consultas Médicas\bin\Debug\net9.0\Sistema de Gerenciamento de Consultas Médicas.pdb
+C:\Users\Augusto\Documents\Sistema de Gerenciamento de Consultas Médicas\Sistema de Gerenciamento de Consultas Médicas\bin\Debug\net9.0\Dapper.dll
+C:\Users\Augusto\Documents\Sistema de Gerenciamento de Consultas Médicas\Sistema de Gerenciamento de Consultas Médicas\bin\Debug\net9.0\Microsoft.AspNetCore.OpenApi.dll
+C:\Users\Augusto\Documents\Sistema de Gerenciamento de Consultas Médicas\Sistema de Gerenciamento de Consultas Médicas\bin\Debug\net9.0\Microsoft.OpenApi.dll
+C:\Users\Augusto\Documents\Sistema de Gerenciamento de Consultas Médicas\Sistema de Gerenciamento de Consultas Médicas\bin\Debug\net9.0\Npgsql.dll
+C:\Users\Augusto\Documents\Sistema de Gerenciamento de Consultas Médicas\Sistema de Gerenciamento de Consultas Médicas\obj\Debug\net9.0\Sistema de Gerenciamento de Consultas Médicas.csproj.AssemblyReference.cache
+C:\Users\Augusto\Documents\Sistema de Gerenciamento de Consultas Médicas\Sistema de Gerenciamento de Consultas Médicas\obj\Debug\net9.0\Sistema de Gerenciamento de Consultas Médicas.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Augusto\Documents\Sistema de Gerenciamento de Consultas Médicas\Sistema de Gerenciamento de Consultas Médicas\obj\Debug\net9.0\Sistema de Gerenciamento de Consultas Médicas.AssemblyInfoInputs.cache
+C:\Users\Augusto\Documents\Sistema de Gerenciamento de Consultas Médicas\Sistema de Gerenciamento de Consultas Médicas\obj\Debug\net9.0\Sistema de Gerenciamento de Consultas Médicas.AssemblyInfo.cs
+C:\Users\Augusto\Documents\Sistema de Gerenciamento de Consultas Médicas\Sistema de Gerenciamento de Consultas Médicas\obj\Debug\net9.0\Sistema de Gerenciamento de Consultas Médicas.csproj.CoreCompileInputs.cache
+C:\Users\Augusto\Documents\Sistema de Gerenciamento de Consultas Médicas\Sistema de Gerenciamento de Consultas Médicas\obj\Debug\net9.0\Sistema de Gerenciamento de Consultas Médicas.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\Augusto\Documents\Sistema de Gerenciamento de Consultas Médicas\Sistema de Gerenciamento de Consultas Médicas\obj\Debug\net9.0\Sistema de Gerenciamento de Consultas Médicas.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Augusto\Documents\Sistema de Gerenciamento de Consultas Médicas\Sistema de Gerenciamento de Consultas Médicas\obj\Debug\net9.0\Sistema de Gerenciamento de Consultas Médicas.sourcelink.json
+C:\Users\Augusto\Documents\Sistema de Gerenciamento de Consultas Médicas\Sistema de Gerenciamento de Consultas Médicas\obj\Debug\net9.0\scopedcss\bundle\Sistema de Gerenciamento de Consultas Médicas.styles.css
+C:\Users\Augusto\Documents\Sistema de Gerenciamento de Consultas Médicas\Sistema de Gerenciamento de Consultas Médicas\obj\Debug\net9.0\staticwebassets.build.json
+C:\Users\Augusto\Documents\Sistema de Gerenciamento de Consultas Médicas\Sistema de Gerenciamento de Consultas Médicas\obj\Debug\net9.0\staticwebassets.development.json
+C:\Users\Augusto\Documents\Sistema de Gerenciamento de Consultas Médicas\Sistema de Gerenciamento de Consultas Médicas\obj\Debug\net9.0\staticwebassets.build.endpoints.json
+C:\Users\Augusto\Documents\Sistema de Gerenciamento de Consultas Médicas\Sistema de Gerenciamento de Consultas Médicas\obj\Debug\net9.0\staticwebassets\msbuild.Sistema de Gerenciamento de Consultas Médicas.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Users\Augusto\Documents\Sistema de Gerenciamento de Consultas Médicas\Sistema de Gerenciamento de Consultas Médicas\obj\Debug\net9.0\staticwebassets\msbuild.Sistema de Gerenciamento de Consultas Médicas.Microsoft.AspNetCore.StaticWebAssetEndpoints.props
+C:\Users\Augusto\Documents\Sistema de Gerenciamento de Consultas Médicas\Sistema de Gerenciamento de Consultas Médicas\obj\Debug\net9.0\staticwebassets\msbuild.build.Sistema de Gerenciamento de Consultas Médicas.props
+C:\Users\Augusto\Documents\Sistema de Gerenciamento de Consultas Médicas\Sistema de Gerenciamento de Consultas Médicas\obj\Debug\net9.0\staticwebassets\msbuild.buildMultiTargeting.Sistema de Gerenciamento de Consultas Médicas.props
+C:\Users\Augusto\Documents\Sistema de Gerenciamento de Consultas Médicas\Sistema de Gerenciamento de Consultas Médicas\obj\Debug\net9.0\staticwebassets\msbuild.buildTransitive.Sistema de Gerenciamento de Consultas Médicas.props
+C:\Users\Augusto\Documents\Sistema de Gerenciamento de Consultas Médicas\Sistema de Gerenciamento de Consultas Médicas\obj\Debug\net9.0\staticwebassets.pack.json
+C:\Users\Augusto\Documents\Sistema de Gerenciamento de Consultas Médicas\Sistema de Gerenciamento de Consultas Médicas\obj\Debug\net9.0\staticwebassets.upToDateCheck.txt
+C:\Users\Augusto\Documents\Sistema de Gerenciamento de Consultas Médicas\Sistema de Gerenciamento de Consultas Médicas\obj\Debug\net9.0\Sistema .192459AD.Up2Date
+C:\Users\Augusto\Documents\Sistema de Gerenciamento de Consultas Médicas\Sistema de Gerenciamento de Consultas Médicas\obj\Debug\net9.0\Sistema de Gerenciamento de Consultas Médicas.dll
+C:\Users\Augusto\Documents\Sistema de Gerenciamento de Consultas Médicas\Sistema de Gerenciamento de Consultas Médicas\obj\Debug\net9.0\refint\Sistema de Gerenciamento de Consultas Médicas.dll
+C:\Users\Augusto\Documents\Sistema de Gerenciamento de Consultas Médicas\Sistema de Gerenciamento de Consultas Médicas\obj\Debug\net9.0\Sistema de Gerenciamento de Consultas Médicas.pdb
+C:\Users\Augusto\Documents\Sistema de Gerenciamento de Consultas Médicas\Sistema de Gerenciamento de Consultas Médicas\obj\Debug\net9.0\Sistema de Gerenciamento de Consultas Médicas.genruntimeconfig.cache
+C:\Users\Augusto\Documents\Sistema de Gerenciamento de Consultas Médicas\Sistema de Gerenciamento de Consultas Médicas\obj\Debug\net9.0\ref\Sistema de Gerenciamento de Consultas Médicas.dll
