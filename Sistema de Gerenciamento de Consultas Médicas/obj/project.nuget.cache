@@ -1,12 +1,15 @@
 {
   "version": 2,
-  "dgSpecHash": "8bqv72o+Pjg=",
+  "dgSpecHash": "R32pVaOTnb8=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Augusto\\Documents\\alura\\C#\\Sistema de Gerenciamento de Consultas Médicas\\Sistema de Gerenciamento de Consultas Médicas\\Sistema de Gerenciamento de Consultas Médicas.csproj",
+  "projectFilePath": "C:\\Users\\Augusto\\Documents\\Sistema de Gerenciamento de Consultas Médicas\\Sistema de Gerenciamento de Consultas Médicas\\Sistema de Gerenciamento de Consultas Médicas.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Augusto\\.nuget\\packages\\dapper\\2.1.35\\dapper.2.1.35.nupkg.sha512",
     "C:\\Users\\Augusto\\.nuget\\packages\\microsoft.aspnetcore.openapi\\9.0.0\\microsoft.aspnetcore.openapi.9.0.0.nupkg.sha512",
-    "C:\\Users\\Augusto\\.nuget\\packages\\microsoft.openapi\\1.6.17\\microsoft.openapi.1.6.17.nupkg.sha512"
+    "C:\\Users\\Augusto\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\8.0.2\\microsoft.extensions.dependencyinjection.abstractions.8.0.2.nupkg.sha512",
+    "C:\\Users\\Augusto\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\8.0.2\\microsoft.extensions.logging.abstractions.8.0.2.nupkg.sha512",
+    "C:\\Users\\Augusto\\.nuget\\packages\\microsoft.openapi\\1.6.17\\microsoft.openapi.1.6.17.nupkg.sha512",
+    "C:\\Users\\Augusto\\.nuget\\packages\\npgsql\\9.0.2\\npgsql.9.0.2.nupkg.sha512"
   ],
   "logs": []
 }

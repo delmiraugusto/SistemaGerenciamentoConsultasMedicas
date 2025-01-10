@@ -1,5 +1,6 @@
 ﻿using System.Data;
 using Dapper;
+using Sistema_de_Gerenciamento_de_Consultas_Médicas.Data;
 using Sistema_de_Gerenciamento_de_Consultas_Médicas.Domain.Entities;
 using Sistema_de_Gerenciamento_de_Consultas_Médicas.Domain.IRepository;
 
@@ -7,70 +8,128 @@ namespace Sistema_de_Gerenciamento_de_Consultas_Médicas.Domain.Infrastructure;
 
 public class ConsultaRepository : IConsultaRepository
 {
-    private readonly IDbConnection _dbConnection;
-            
-    public ConsultaRepository(IDbConnection dbConnection)
+    private readonly PostgresConnection _dbConnection;
+           
+    public ConsultaRepository(PostgresConnection dbConnection)
     {
         _dbConnection = dbConnection;
     }
 
-    public async Task<IEnumerable<Consulta>> GetPacienteAsync(int idPaciente)
+    public async Task<IEnumerable<Consult>> GetPatientAsync(int idPatient)
     {
-        var query = "SELECT * FROM Consulta WHERE id_paciente = @IdPaciente";
-        return await _dbConnection.QueryAsync<Consulta>(query, new { IdPaciente = idPaciente });
+        var query = @"
+    SELECT 
+        c.id AS Id,
+        c.description AS Description, 
+        c.DateTimeQuery,  
+        m.id AS DoctorId,
+        m.Name AS DoctorName, 
+        m.Speciality AS DoctorSpeciality
+    FROM Consult c
+    JOIN Doctor m ON c.id_doctor = m.id
+    WHERE c.id_patient = @IdPatient AND c.IsCanceled = 0";
+
+        using (var connection = _dbConnection.GetConnection())
+        {
+            var consults = await connection.QueryAsync<Consult, Doctor, Consult>(
+                query,
+                (consult, doctor) =>
+                {
+                    consult.IdDoctor = doctor;
+                    return consult;
+                },
+                new { IdPatient = idPatient },
+                splitOn: "DoctorId" 
+            );
+
+            return consults;
+        }
     }
-    public async Task<IEnumerable<Consulta>> GetMedicoAsync(int idMedico)
+
+    public async Task<IEnumerable<Consult>> GetDoctorAsync(int idDoctor)
     {
-        var query = "SELECT * FROM Consulta WHERE id_medico = @IdMedico";
-        return await _dbConnection.QueryAsync<Consulta>(query, new { IdMedico = idMedico });
+        var query = @"
+        SELECT 
+            c.id AS Id, 
+            c.description AS Description, 
+            c.DateTimeQuery, 
+            p.id AS PatientId, 
+            p.Name AS PatientName,
+            p.Email AS PatientEmail,
+            m.id AS DoctorId, 
+            m.Name AS DoctorName
+        FROM Consult c
+        JOIN Patient p ON c.id_patient = p.id
+        JOIN Doctor m ON c.id_doctor = m.id
+        WHERE c.id_doctor = @IdDoctor AND c.IsCanceled = 0";
+
+        using (var connection = _dbConnection.GetConnection())
+        {
+            var consults = await connection.QueryAsync<Consult, Patient, Doctor, Consult>(
+                query,
+                (consult, patient, doctor) =>
+                {
+                    consult.IdPatient = patient;
+                    consult.IdDoctor = doctor;
+                    return consult;
+                },
+                new { IdDoctor = idDoctor },
+                splitOn: "PatientId,DoctorId"
+            );
+
+            return consults;
+        }
     }
 
-    //public async Task<Consulta> GetByAsync(int id)
-    //{
-    //    var query = "SELECT * FROM Consulta WHERE id = @Id";
-    //    return await _dbConnection.QueryFirstOrDefaultAsync<Consulta>(query, new { Id = id });
-    //}
+    public async Task<Consult> GetByAsync(int id)
+    {
+        var query = "SELECT * FROM Consult WHERE id = @Id";
+        using (var connection = _dbConnection.GetConnection())
+        {
+            var consult = await connection.QueryFirstOrDefaultAsync<Consult>(query, new { Id = id });
+            return consult == null ? throw new KeyNotFoundException($"Consulta com o ID {id} não foi encontrada.") : consult;
+        }
+    }
 
-    //public async Task AddAsync(Consulta consulta)
-    //{
-    //    var query = @"
-    //    INSERT INTO Consulta (Descricao, DataHoraConsulta, id_paciente, id_medico)
-    //    VALUES (@Descricao, @DataHoraConsulta, @IdPaciente, @IdMedico)";
+    public async Task AddConsultOrUpdateAsync(Consult consult)
+    {
+        if (consult.Id > 0)
+        {
+            var query = "UPDATE Consult SET Description = @Description, DateTimeQuery = @DateTimeQuery WHERE Id = @Id";
+            using (var connection = _dbConnection.GetConnection())
+            {
+                await connection.ExecuteAsync(query, consult);
+            }
+        }
+        else
+        {
+            var query = "INSERT INTO Consult (Description, DateTimeQuery, PatientId, DoctorId) VALUES (@Description, @DateTimeQuery, @PatientId, @DoctorId)";
+            using (var connection = _dbConnection.GetConnection())
+            {
+                var parameters = new
+                {
+                    consult.Description,
+                    consult.DateTimeQuery,
+                    PatientId = consult.Patient?.Id,
+                    DoctorId = consult.Doctor?.Id
+                };
 
-    //    await _dbConnection.ExecuteAsync(query, new
-    //    {
-    //        consulta.Descricao,
-    //        consulta.DataHoraConsulta,
-    //        IdPaciente = consulta.Paciente?.id,
-    //        IdMedico = consulta.Medico?.Id
-    //    });
-    //}
+                await connection.ExecuteAsync(query, parameters);
+            }
+        }
+    }
 
-    //public async Task UpdateAsync(Consulta consulta)
-    //{
-    //    var query = @"
-    //    UPDATE Consulta
-    //    SET Descricao = @Descricao,
-    //        DataHoraConsulta = @DataHoraConsulta,
-    //        id_paciente = @IdPaciente,
-    //        id_medico = @IdMedico
-    //    WHERE id = @Id";
-
-    //    await _dbConnection.ExecuteAsync(query, new
-    //    {
-    //        consulta.Descricao,
-    //        consulta.DataHoraConsulta,
-    //        IdPaciente = consulta.Paciente?.id,
-    //        IdMedico = consulta.Medico?.Id,
-    //        consulta.id
-    //    });
-    //}
-
-    //public async Task<bool> DeleteAsync(int id)
-    //{
-    //    var query = "DELETE FROM Consulta WHERE id = @Id";
-    //    var rowsAffected = await _dbConnection.ExecuteAsync(query, new { Id = id });
-    //    return rowsAffected > 0;
-    //}
+    public async Task CancelAsync(int id)
+    {
+        var query = "UPDATE Consult SET IsCanceled = 1 WHERE id = @Id";
+        using (var connection = _dbConnection.GetConnection())
+        {
+            var affectedRows = await connection.ExecuteAsync(query, new { Id = id });
+            if (affectedRows == 0)
+            {
+                throw new InvalidOperationException("Consulta não encontrado ou já foi cancelado.");
+            }
+        }
+    }
 
 }

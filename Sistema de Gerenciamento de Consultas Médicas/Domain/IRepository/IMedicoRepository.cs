@@ -4,11 +4,11 @@ namespace Sistema_de_Gerenciamento_de_Consultas_Médicas.Domain.IRepository
 {
     public interface IMedicoRepository
     {
-        Task<IEnumerable<Medico>> GetMedicoAsync();
-        Task<Medico> GetByIdAsync(int id);
-        Task AddAsync(Medico medico);
-        Task UpdateAsync(Medico medico);
-        Task <bool> DeleteAsync(int id);
+        Task<IEnumerable<Doctor>> GetAllAsync();
+        Task<Doctor> GetByIdAsync(int id);
+        Task AddAsync(Doctor doctor);
+        Task UpdateAsync(Doctor doctor);
+        Task CancelAsync(int id);
 
     }
 }
