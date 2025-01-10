@@ -15,9 +15,7 @@
 
   <ItemGroup>
     <Folder Include="Controllers\" />
-    <Folder Include="Application\" />
     <Folder Include="Domain\Services\" />
-    <Folder Include="Infrastructure\" />
     <Folder Include="Presentation\" />
   </ItemGroup>
 

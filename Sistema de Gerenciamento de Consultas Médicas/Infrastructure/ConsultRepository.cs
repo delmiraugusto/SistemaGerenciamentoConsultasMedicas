@@ -6,11 +6,11 @@ using Sistema_de_Gerenciamento_de_Consultas_Médicas.Domain.IRepository;
 
 namespace Sistema_de_Gerenciamento_de_Consultas_Médicas.Domain.Infrastructure;
 
-public class ConsultaRepository : IConsultaRepository
+public class ConsultRepository : IConsultRepository
 {
     private readonly PostgresConnection _dbConnection;
            
-    public ConsultaRepository(PostgresConnection dbConnection)
+    public ConsultRepository(PostgresConnection dbConnection)
     {
         _dbConnection = dbConnection;
     }
@@ -91,31 +91,21 @@ public class ConsultaRepository : IConsultaRepository
         }
     }
 
-    public async Task AddConsultOrUpdateAsync(Consult consult)
+    public async Task AddAsync(Consult consult)
     {
-        if (consult.Id > 0)
-        {
             var query = "UPDATE Consult SET Description = @Description, DateTimeQuery = @DateTimeQuery WHERE Id = @Id";
             using (var connection = _dbConnection.GetConnection())
             {
                 await connection.ExecuteAsync(query, consult);
             }
-        }
-        else
-        {
-            var query = "INSERT INTO Consult (Description, DateTimeQuery, PatientId, DoctorId) VALUES (@Description, @DateTimeQuery, @PatientId, @DoctorId)";
-            using (var connection = _dbConnection.GetConnection())
-            {
-                var parameters = new
-                {
-                    consult.Description,
-                    consult.DateTimeQuery,
-                    PatientId = consult.Patient?.Id,
-                    DoctorId = consult.Doctor?.Id
-                };
+    }
 
-                await connection.ExecuteAsync(query, parameters);
-            }
+    public async Task UpdateAsync(Consult consult)
+    {
+        var query = "INSERT INTO Consult (Description, DateTimeQuery, PatientId, DoctorId) VALUES (@Description, @DateTimeQuery, @PatientId, @DoctorId)";
+        using (var connection = _dbConnection.GetConnection()) 
+        {
+            await connection.ExecuteAsync(query, consult);
         }
     }
 

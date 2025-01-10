@@ -2,11 +2,12 @@
 
 namespace Sistema_de_Gerenciamento_de_Consultas_Médicas.Domain.IRepository;
 
-public interface IConsultaRepository
+public interface IConsultRepository
 {
     Task<IEnumerable<Consult>> GetPatientAsync(int idPatient);
     Task<IEnumerable<Consult>> GetDoctorAsync(int idDoctor);
     Task<Consult> GetByAsync(int id);
-    Task AddConsultOrUpdateAsync(Consult consult);
+    Task AddAsync(Consult consult);
+    Task UpdateAsync(Consult consult);
     Task CancelAsync(int id);
 }

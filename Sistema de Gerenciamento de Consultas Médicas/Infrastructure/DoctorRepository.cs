@@ -1,15 +1,17 @@
 ﻿using System;
+using System.Security.Cryptography;
+using System.Text;
 using Dapper;
 using Sistema_de_Gerenciamento_de_Consultas_Médicas.Data;
 using Sistema_de_Gerenciamento_de_Consultas_Médicas.Domain.Entities;
 using Sistema_de_Gerenciamento_de_Consultas_Médicas.Domain.IRepository;
 namespace Sistema_de_Gerenciamento_de_Consultas_Médicas.Domain.Infrastructure;
 
-public class MedicoRepository : IMedicoRepository
+public class DoctorRepository : IDoctorRepository
 {
     private readonly PostgresConnection _dbConnection;
     
-    public MedicoRepository(PostgresConnection dbConnection)
+    public DoctorRepository(PostgresConnection dbConnection)
     {
         _dbConnection = dbConnection;
     }
@@ -23,13 +25,23 @@ public class MedicoRepository : IMedicoRepository
         }
     }
 
+    public async Task<Doctor> GetByEmailAsync(string email)
+    {
+        var query = "SELECT * FROM Patient WHERE id = @Id";
+        using (var connection = _dbConnection.GetConnection())
+        {
+            var doctor = await connection.QueryFirstOrDefaultAsync<Doctor>(query, new { Email = email });
+            return doctor == null ? throw new KeyNotFoundException($"Médico não encontrado.") : doctor;
+        }
+    }
+
     public async Task<Doctor> GetByIdAsync(int id)
     {
         var query = "SELECT * FROM Doctor WHERE id = @Id";
         using (var connection = _dbConnection.GetConnection())
         {
             var doctor = await connection.QueryFirstOrDefaultAsync<Doctor>(query, new { Id = id });
-            return doctor == null ? throw new KeyNotFoundException($"Médico com o ID {id} não foi encontrada.") : doctor;
+            return doctor == null ? throw new KeyNotFoundException($"Médico não encontrado.") : doctor;
         }
     }
 
@@ -64,6 +76,41 @@ public class MedicoRepository : IMedicoRepository
                 throw new InvalidOperationException("Médico não encontrado ou já foi desativado.");
             }
         }
+    }
+
+    public static string CreatePassword(string password)
+    {
+        using (var shuffle = new HMACSHA512()){
+            var passwordBytes = Encoding.UTF8.GetBytes(password);
+            var hash = shuffle.ComputeHash(passwordBytes);
+            return Convert.ToBase64String(hash);
+        }
+    }
+
+    public static bool VerifyPassword(string password, string storedHash)
+    {
+        var hash = Convert.FromBase64String(storedHash);
+        using (var shuffle = new HMACSHA512())
+        {
+            var passwordBytes = Encoding.UTF8.GetBytes(password);
+            var translate = shuffle.ComputeHash(passwordBytes);
+
+            return translate.SequenceEqual(hash);
+        }
+    }
+
+    public async Task<Doctor> AuthenticationAsync(string email, string password)
+    {
+        var doctor = await GetByEmailAsync(email);
+        if (doctor == null)
+        {
+            return null;
+        }
+        if (!VerifyPassword(password, doctor.PasswordHash))
+        {
+            return null;
+        }
+        return doctor;
     }
 
 }
