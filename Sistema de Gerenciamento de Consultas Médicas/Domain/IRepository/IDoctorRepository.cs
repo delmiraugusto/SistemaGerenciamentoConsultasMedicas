@@ -10,6 +10,7 @@ namespace Sistema_de_Gerenciamento_de_Consultas_Médicas.Domain.IRepository
         Task<Doctor> AddAsync(Doctor doctor);
         Task UpdateAsync(Doctor doctor);
         Task CancelAsync(int id);
+        Task<bool> HasConsultsAsync(int doctorId);
         Task<Doctor> AuthenticationAsync(string email, string password);
 
     }

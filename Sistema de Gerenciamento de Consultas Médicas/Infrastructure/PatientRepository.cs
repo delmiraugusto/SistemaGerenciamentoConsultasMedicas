@@ -78,6 +78,17 @@ namespace Sistema_de_Gerenciamento_de_Consultas_Médicas.Domain.Infrastructure
             }
         }
 
+        public async Task<bool> HasConsultsAsync(int patientId)
+        {
+            var query = "SELECT COUNT(1) FROM Consult WHERE IdPatient = @PatientId";
+            using (var connection = _dbConnection.GetConnection())
+            {
+                var count = await connection.ExecuteScalarAsync<int>(query, new { PatientId = patientId });
+                return count > 0;
+            }
+        }
+
+
         public async Task<Patient> AuthenticationAsync(string email, string password)
         {
             var patient = await GetByEmailAsync(email);

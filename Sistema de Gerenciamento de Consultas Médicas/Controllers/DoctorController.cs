@@ -39,13 +39,13 @@ public class DoctorController : ControllerBase
             var doctor = await _doctorService.GetByIdAsync(id);
             if (doctor == null)
             {
-                return NotFound($"Médico com id: {id} não encontrado.");
+                return NotFound($"Médico com id: {id} não foi encontrado.");
             }
             return Ok(doctor);
         }
         catch (Exception ex)
         {
-            return StatusCode(500, $"Erro ao obter o médico: {ex.Message}");
+            return StatusCode(500, $"Erro ao obter o Médico: {ex.Message}");
         }
     }
 
@@ -57,13 +57,13 @@ public class DoctorController : ControllerBase
             var doctor = await _doctorService.GetByEmailAsync(email);
             if (doctor == null)
             {
-                return NotFound($"Médico com email: {email} não encontrado.");
+                return NotFound($"Médico com o email: {email} não encontrado.");
             }
             return Ok(doctor);
         }
         catch (Exception ex)
         {
-            return StatusCode(500, $"Erro ao obter o médico: {ex.Message}");
+            return StatusCode(500, $"Erro ao obter o Médico: {ex.Message}");
         }
     }
 
@@ -110,7 +110,7 @@ public class DoctorController : ControllerBase
         }
         catch (Exception ex)
         {
-            return StatusCode(500, $"Erro ao atualizar o usuário: {ex.Message}");
+            return StatusCode(500, $"Erro ao atualizar o médico: {ex.Message}");
         }
     }
 
@@ -122,10 +122,15 @@ public class DoctorController : ControllerBase
             await _doctorService.CancelAsync(id);
             return NoContent();
         }
+        catch (ApplicationException ex)
+        {
+            return BadRequest(new { message = ex.Message });
+        }
         catch (Exception ex)
         {
             return StatusCode(500, $"Erro ao desativar o médico: {ex.Message}");
         }
     }
+
 
 }

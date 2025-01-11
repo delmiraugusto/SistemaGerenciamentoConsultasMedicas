@@ -10,6 +10,7 @@ public interface IPatientRepository
     Task AddAsync(Patient patient);
     Task UpdateAsync(Patient patient);
     Task DeleteAsync(int id);
+    Task<bool> HasConsultsAsync(int patientId);
     Task<Patient> AuthenticationAsync(string email, string password);
 
 }

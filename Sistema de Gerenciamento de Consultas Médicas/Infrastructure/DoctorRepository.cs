@@ -122,8 +122,6 @@ namespace Sistema_de_Gerenciamento_de_Consultas_Médicas.Domain.Infrastructure
             }
         }
 
-
-
         public async Task CancelAsync(int id)
         {
             var query = "UPDATE Doctor SET IsActive = 0 WHERE id = @Id";
@@ -136,6 +134,17 @@ namespace Sistema_de_Gerenciamento_de_Consultas_Médicas.Domain.Infrastructure
                 }
             }
         }
+
+        public async Task<bool> HasConsultsAsync(int doctorId)
+        {
+            var query = "SELECT COUNT(1) FROM Consult WHERE IdDoctor = @DoctorId";
+            using (var connection = _dbConnection.GetConnection())
+            {
+                var count = await connection.ExecuteScalarAsync<int>(query, new { DoctorId = doctorId });
+                return count > 0;
+            }
+        }
+
 
         public static string CreatePassword(string password)
         {

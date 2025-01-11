@@ -134,6 +134,12 @@ public class DoctorService : IDoctorService
             throw new ApplicationException("Médico não encontrado para desativação.");
         }
 
+        var hasConsults = await _doctorRepository.HasConsultsAsync(id);
+        if (hasConsults)
+        {
+            throw new ApplicationException("Não é possível desativar o médico, pois ele está associado a uma ou mais consultas.");
+        }
+
         doctor.IsActive = false;
 
         await _doctorRepository.UpdateAsync(doctor);

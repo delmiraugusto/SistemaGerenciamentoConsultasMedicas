@@ -8,7 +8,7 @@ public interface IPatientService
     Task<IEnumerable<PatientDTO>> GetAllAsync();
     Task<PatientDTO> GetByEmailAsync(string email);
     Task<PatientDTO> GetByIdAsync(int id);
-    Task AddAsync(PatientDTO patientDTO);
-    Task UpdateAsync(PatientDTO patientDTO);
+    Task<int> AddAsync(PatientDTO patientDTO);
+    Task UpdateAsync(int id, PatientDTO patientDTO);
     Task DeleteAsync(int id);
 }

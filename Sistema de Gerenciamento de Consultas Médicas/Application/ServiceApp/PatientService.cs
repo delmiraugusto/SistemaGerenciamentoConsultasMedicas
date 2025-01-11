@@ -1,4 +1,5 @@
-﻿using System.Security.Cryptography.X509Certificates;
+﻿using System.Numerics;
+using System.Security.Cryptography.X509Certificates;
 using Sistema_de_Gerenciamento_de_Consultas_Médicas.Application.DTO;
 using Sistema_de_Gerenciamento_de_Consultas_Médicas.Domain.Entities;
 using Sistema_de_Gerenciamento_de_Consultas_Médicas.Domain.Infrastructure;
@@ -36,24 +37,24 @@ public class PatientService : IPatientService
             )).ToList();
     }
 
-        public async Task<PatientDTO> GetByEmailAsync(string email)
+    public async Task<PatientDTO> GetByEmailAsync(string email)
+    {
+        var patient = await _patientRepository.GetByEmailAsync(email);
+
+        if (patient == null)
         {
-            var patient = await _patientRepository.GetByEmailAsync(email);
-
-            if (patient == null)
-            {
-                throw new ApplicationException("Nenhum Paciente encontrado");
-            }
-
-            return new PatientDTO(
-                patient.Id,
-                patient.Name,
-                patient.Email,
-                patient.PasswordHash,
-                patient.Age,
-                patient.Telephone
-                );
+            throw new ApplicationException("Nenhum Paciente encontrado");
         }
+
+        return new PatientDTO(
+            patient.Id,
+            patient.Name,
+            patient.Email,
+            patient.PasswordHash,
+            patient.Age,
+            patient.Telephone
+            );
+    }
 
     public async Task<PatientDTO> GetByIdAsync(int id)
     {
@@ -74,20 +75,22 @@ public class PatientService : IPatientService
             );
     }
 
-    public async Task AddAsync(PatientDTO patientDTO)
+    public async Task<int> AddAsync(PatientDTO patientDTO)
     {
         var patient = new Patient
         {
             Name = patientDTO.Name,
             Email = patientDTO.Email,
+            PasswordHash = patientDTO.PasswordHash,
             Age = patientDTO.Age,
             Telephone = patientDTO.Telephone
         };
 
         await _patientRepository.AddAsync(patient);
+        return patient.Id;
     }
 
-    public async Task UpdateAsync(PatientDTO patientDTO)
+    public async Task UpdateAsync(int id, PatientDTO patientDTO)
     {
         var patient = await _patientRepository.GetByIdAsync(patientDTO.Id);
 
@@ -96,10 +99,15 @@ public class PatientService : IPatientService
             throw new ApplicationException("Paciente não encontrado.");
         }
 
-        patient.Name =  patientDTO.Name;
-        patient.Email = patientDTO.Email;
-        patient.Age = patientDTO.Age;
-        patient.Telephone = patientDTO.Telephone;
+        if (patientDTO.Id != id)
+        {
+            throw new ApplicationException("O ID não pode ser alterado.");
+        }
+
+        if (!string.IsNullOrEmpty(patientDTO.Email)) patient.Email = patientDTO.Email;
+        if (!string.IsNullOrEmpty(patientDTO.Telephone)) patient.Telephone = patientDTO.Telephone;
+        if (!string.IsNullOrEmpty(patientDTO.PasswordHash)) patient.PasswordHash = patientDTO.PasswordHash;
+        if (!string.IsNullOrEmpty(patientDTO.Name)) patient.Name = patientDTO.Name;
 
         await _patientRepository.UpdateAsync(patient);
     }
@@ -113,7 +121,13 @@ public class PatientService : IPatientService
             throw new ApplicationException("Paciente não encontrado.");
         }
 
+        var hasConsults = await _patientRepository.HasConsultsAsync(id);
+        if (hasConsults)
+        {
+            throw new ApplicationException("Não é possível excluir o paciente pois ele está associado a uma consulta.");
+        }
+
         await _patientRepository.DeleteAsync(id);
     }
 
-    }
+}
