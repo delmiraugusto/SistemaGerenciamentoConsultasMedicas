@@ -138,7 +138,7 @@ public class ConsultController : ControllerBase
 
 
     [HttpPut("{id}")]
-    public async Task<ActionResult> Update(int id, [FromBody] ConsultDTO consult)
+    public async Task<ActionResult> Update(int id, [FromBody] UpdateConsultDTO consult)
     {
         if (id != consult.Id)
         {
@@ -158,6 +158,20 @@ public class ConsultController : ControllerBase
         catch (Exception ex)
         {
             return StatusCode(500, $"Erro ao atualizar a consulta: {ex.Message}");
+        }
+    }
+
+    [HttpDelete("{id}")]
+    public async Task<ActionResult> Delete(int id)
+    {
+        try
+        {
+            await _consultService.CancelAsync(id);
+            return NoContent();
+        }
+        catch (Exception ex)
+        {
+            return StatusCode(500, $"Erro ao cancelar a consulta: {ex.Message}");
         }
     }
 

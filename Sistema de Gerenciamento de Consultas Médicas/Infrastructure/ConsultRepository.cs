@@ -135,35 +135,40 @@ public class ConsultRepository : IConsultRepository
     {
         var query = @"
         UPDATE Consult 
-            SET Description = @Description, 
-            DateTimeQuery = @DateTimeQuery 
+        SET 
+            Description = @Description, 
+            DateTimeQuery = @DateTimeQuery,
+            IsCanceled = @IsCanceled
         WHERE Id = @Id";
+
         using (var connection = _dbConnection.GetConnection())
         {
-            try 
+            try
             {
                 var affectedRows = await connection.ExecuteAsync(query, new
                 {
+                    consult.Id,
                     consult.Description,
                     consult.DateTimeQuery,
-                    consult.IdPatient,
-                    consult.IdDoctor,
                     consult.IsCanceled,
                 });
+
                 if (affectedRows == 0)
                 {
-                    throw new KeyNotFoundException("Consulta não encontrado.");
+                    throw new KeyNotFoundException("Consulta não encontrada.");
                 }
             }
             catch (Exception ex)
             {
-                throw new ApplicationException("Erro a atualizar a Consulta.");
+                throw new ApplicationException($"Erro ao atualizar a consulta: {ex.Message}");
             }
         }
     }
+
+
     public async Task CancelAsync(int id)
     {
-        var query = "UPDATE Consult SET IsCanceled = 1 WHERE id = @Id";
+        var query = "UPDATE Consult SET IsCanceled = TRUE WHERE id = @Id";
         using (var connection = _dbConnection.GetConnection())
         {
             var affectedRows = await connection.ExecuteAsync(query, new { Id = id });

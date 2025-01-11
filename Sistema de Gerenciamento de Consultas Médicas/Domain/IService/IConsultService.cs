@@ -10,6 +10,6 @@ public interface IConsultService
     Task<IEnumerable<DoctorConsultDTO>> GetConsultByDoctorIdAsync(int idDoctor);
     Task<ConsultDTO> GetByIdAsync(int id);
     Task<int> AddAsync(Consult Consult);
-    Task UpdateAsync(int id, ConsultDTO consultDTO);
+    Task UpdateAsync(int id, UpdateConsultDTO consultDTO);
     Task CancelAsync(int id);
 }

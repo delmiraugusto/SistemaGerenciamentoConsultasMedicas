@@ -56,7 +56,23 @@
       },
       {
         "Name": "consult",
-        "Type": "Sistema_de_Gerenciamento_de_Consultas_M\u00E9dicas.Application.DTO.ConsultDTO",
+        "Type": "Sistema_de_Gerenciamento_de_Consultas_M\u00E9dicas.Application.DTO.UpdateConsultDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Sistema_de_Gerenciamento_de_Consultas_M\u00E9dicas.Controllers.ConsultController",
+    "Method": "Delete",
+    "RelativePath": "api/Consult/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
         "IsRequired": true
       }
     ],

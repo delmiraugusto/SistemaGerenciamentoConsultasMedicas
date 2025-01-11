@@ -116,21 +116,24 @@ public class ConsultService : IConsultService
     }
 
 
-    public async Task UpdateAsync(int id, ConsultDTO consultDTO)
+    public async Task UpdateAsync(int id, UpdateConsultDTO consultDTO)
     {
-        var consult = await _consultRepository.GetByIdAsync(id);
+        var editConsult = await _consultRepository.GetByIdAsync(id);
 
-        if (consult == null)
+        if (editConsult == null)
         {
-            throw new ApplicationException("Consulta não encontrada");
+            throw new KeyNotFoundException("Consulta não encontrada");
         }
 
-        if (consultDTO.Id != id)
+        var updatedConsult = new Consult
         {
-            throw new ApplicationException("O ID não pode ser alterado.");
-        }
+            Id = editConsult.Id, // Manter o Id original
+            Description = consultDTO.Description ?? editConsult.Description,
+            DateTimeQuery = consultDTO.DateTimeQuery ?? editConsult.DateTimeQuery,
+            IsCanceled = consultDTO.IsCanceled ?? editConsult.IsCanceled
+        };
 
-        //await _consultRepository.UpdateAsync(consult);
+        await _consultRepository.UpdateAsync(updatedConsult);
     }
 
     public async Task CancelAsync(int id)
@@ -138,7 +141,7 @@ public class ConsultService : IConsultService
         var consult = await _consultRepository.GetByIdAsync(id);
         if(consult == null)
         {
-            throw new ApplicationException("Consulta não encontrada ou já desativada");
+            throw new ApplicationException("Consulta não encontrada ou já cancelada");
         }
 
         await _consultRepository.CancelAsync(id);
