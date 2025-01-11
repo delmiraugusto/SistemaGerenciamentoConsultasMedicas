@@ -31,8 +31,7 @@ public class DoctorService : IDoctorService
             doctor.Telephone,
             doctor.Crm,
             doctor.PasswordHash,
-            doctor.Specialty,
-            doctor.IsActive
+            doctor.Specialty
         )).ToList();
     }
 
@@ -52,13 +51,12 @@ public class DoctorService : IDoctorService
             doctor.Telephone,
             doctor.Crm,
             doctor.PasswordHash,
-            doctor.Specialty,
-            doctor.IsActive
+            doctor.Specialty
         );
 
     }
 
-    public async Task<DoctorDTO> GetByIdAsync(int id)
+    public async Task<IsActiveDoctorDTO> GetByIdAsync(int id)
     {
         var doctor = await _doctorRepository.GetByIdAsync(id);
 
@@ -67,7 +65,7 @@ public class DoctorService : IDoctorService
             throw new ApplicationException("Médico não encontrado.");
         }
 
-        return new DoctorDTO(
+        return new IsActiveDoctorDTO(
             doctor.Id,
             doctor.Name,
             doctor.Email,
@@ -120,7 +118,6 @@ public class DoctorService : IDoctorService
         if (!string.IsNullOrEmpty(doctorDTO.Telephone)) doctor.Telephone = doctorDTO.Telephone;
         if (!string.IsNullOrEmpty(doctorDTO.Specialty)) doctor.Specialty = doctorDTO.Specialty;
         if (!string.IsNullOrEmpty(doctorDTO.PasswordHash)) doctor.PasswordHash = doctorDTO.PasswordHash;
-        if (doctorDTO.IsActive.HasValue) doctor.IsActive = doctorDTO.IsActive.Value;
 
         await _doctorRepository.UpdateAsync(doctor);
     }

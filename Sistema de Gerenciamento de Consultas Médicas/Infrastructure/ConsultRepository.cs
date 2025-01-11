@@ -1,5 +1,5 @@
-﻿using System.Data;
-using Dapper;
+﻿using Dapper;
+using Sistema_de_Gerenciamento_de_Consultas_Médicas.Application.DTO;
 using Sistema_de_Gerenciamento_de_Consultas_Médicas.Data;
 using Sistema_de_Gerenciamento_de_Consultas_Médicas.Domain.Entities;
 using Sistema_de_Gerenciamento_de_Consultas_Médicas.Domain.IRepository;
@@ -9,37 +9,36 @@ namespace Sistema_de_Gerenciamento_de_Consultas_Médicas.Domain.Infrastructure;
 public class ConsultRepository : IConsultRepository
 {
     private readonly PostgresConnection _dbConnection;
-           
+
     public ConsultRepository(PostgresConnection dbConnection)
     {
         _dbConnection = dbConnection;
     }
 
-    public async Task<IEnumerable<Consult>> GetPatientAsync(int idPatient)
+    public async Task<IEnumerable<PatientConsultDTO>> GetConsultByPatientIdAsync(int idPatient)
     {
         var query = @"
         SELECT 
             c.id AS Id,
             c.description AS Description, 
             c.DateTimeQuery,  
-            m.id AS DoctorId,
-            m.Name AS DoctorName, 
-            m.specialty AS DoctorSpecialty -- Corrigido para o nome correto da coluna
+            p.id AS PatientId,
+            p.Name AS PatientName,
+            d.id AS DoctorId,
+            d.Name AS DoctorName,
+            d.Telephone AS DoctorTelephone,
+            d.specialty AS DoctorSpecialty,
+            c.IsCanceled
         FROM Consult c
-        JOIN Doctor m ON c.id_doctor = m.id
-        WHERE c.id_patient = @IdPatient AND c.IsCanceled = 0";
+        JOIN Doctor d ON c.id_doctor = d.id
+        JOIN Patient p ON c.id_patient = p.id
+        WHERE c.id_patient = @IdPatient AND c.IsCanceled = false;";
 
         using (var connection = _dbConnection.GetConnection())
         {
-            var consults = await connection.QueryAsync<Consult, Doctor, Consult>(
+            var consults = await connection.QueryAsync<PatientConsultDTO>(
                 query,
-                (consult, doctor) =>
-                {
-                    consult.IdDoctor = doctor;
-                    return consult;
-                },
-                new { IdPatient = idPatient },
-                splitOn: "DoctorId"
+                new { IdPatient = idPatient }
             );
 
             return consults;
@@ -47,7 +46,7 @@ public class ConsultRepository : IConsultRepository
     }
 
 
-    public async Task<IEnumerable<Consult>> GetDoctorAsync(int idDoctor)
+    public async Task<IEnumerable<DoctorConsultDTO>> GetDoctorAsync(int idDoctor)
     {
         var query = @"
         SELECT 
@@ -56,26 +55,23 @@ public class ConsultRepository : IConsultRepository
             c.DateTimeQuery, 
             p.id AS PatientId, 
             p.Name AS PatientName,
-            p.Email AS PatientEmail,
-            m.id AS DoctorId, 
-            m.Name AS DoctorName
+            p.Age AS PatientAge, 
+            p.Telephone AS PatientTelephone,
+            d.id AS DoctorId, 
+            d.Name AS DoctorName,
+            c.IsCanceled AS IsCanceled
         FROM Consult c
         JOIN Patient p ON c.id_patient = p.id
-        JOIN Doctor m ON c.id_doctor = m.id
-        WHERE c.id_doctor = @IdDoctor AND c.IsCanceled = 0";
+        JOIN Doctor d ON c.id_doctor = d.id
+        WHERE d.id = @idDoctor AND c.IsCanceled = false;";
+
 
         using (var connection = _dbConnection.GetConnection())
         {
-            var consults = await connection.QueryAsync<Consult, Patient, Doctor, Consult>(
+            var consults = await connection.QueryAsync<DoctorConsultDTO>(
                 query,
-                (consult, patient, doctor) =>
-                {
-                    consult.IdPatient = patient;
-                    consult.IdDoctor = doctor;
-                    return consult;
-                },
-                new { IdDoctor = idDoctor },
-                splitOn: "id_patient,id_doctor"
+                new { IdDoctor = idDoctor }
+
             );
 
             return consults;
@@ -122,17 +118,17 @@ public class ConsultRepository : IConsultRepository
 
     public async Task UpdateAsync(Consult consult)
     {
-            var query = "UPDATE Consult SET Description = @Description, DateTimeQuery = @DateTimeQuery WHERE Id = @Id";
-            using (var connection = _dbConnection.GetConnection())
-            {
-                await connection.ExecuteAsync(query, consult);
-            }
+        var query = "UPDATE Consult SET Description = @Description, DateTimeQuery = @DateTimeQuery WHERE Id = @Id";
+        using (var connection = _dbConnection.GetConnection())
+        {
+            await connection.ExecuteAsync(query, consult);
+        }
     }
 
     public async Task AddAsync(Consult consult)
     {
         var query = "INSERT INTO Consult (Description, DateTimeQuery, PatientId, DoctorId) VALUES (@Description, @DateTimeQuery, @PatientId, @DoctorId)";
-        using (var connection = _dbConnection.GetConnection()) 
+        using (var connection = _dbConnection.GetConnection())
         {
             await connection.ExecuteAsync(query, consult);
         }

@@ -15,27 +15,30 @@ public class ConsultService : IConsultService
         _consultRepository = consultRepository;
     }
 
-    public async Task<IEnumerable<ConsultDTO>> GetPatientAsync(int idPatient)
+    public async Task<IEnumerable<PatientConsultDTO>> GetConsultByPatientIdAsync(int idPatient)
     {
-        var consults = await _consultRepository.GetPatientAsync(idPatient);
+        var consults = await _consultRepository.GetConsultByPatientIdAsync(idPatient);
 
         if (consults == null || !consults.Any())
         {
             throw new ApplicationException("Nenhuma consulta encontrada para esse paciente.");
         }
 
-        return consults.Select(consult => new ConsultDTO(
+        return consults.Select(consult => new PatientConsultDTO(
             consult.Id,
             consult.Description,
             consult.DateTimeQuery,
-            consult.IdPatient,
-            consult.IdDoctor,
+            consult.PatientId,
+            consult.PatientName,
+            consult.DoctorId,
+            consult.DoctorName,
+            consult.DoctorTelephone,
+            consult.DoctorSpecialty,
             consult.IsCanceled
         )).ToList();
     }
 
-
-    public async Task<IEnumerable<ConsultDTO>> GetDoctorAsync(int idDoctor)
+    public async Task<IEnumerable<DoctorConsultDTO>> GetConsultByDoctorIdAsync(int idDoctor)
     {
         var consults = await _consultRepository.GetDoctorAsync(idDoctor);
 
@@ -44,12 +47,16 @@ public class ConsultService : IConsultService
             throw new ApplicationException("Nenhuma consulta encontrada para esse médico.");
         }
 
-        return consults.Select(consult => new ConsultDTO(
+        return consults.Select(consult => new DoctorConsultDTO(
             consult.Id,
             consult.Description,
             consult.DateTimeQuery,
-            consult.IdPatient,
-            consult.IdDoctor,
+            consult.PatientId,
+            consult.PatientName,
+            consult.PatientAge,
+            consult.PatientTelephone,
+            consult.DoctorId,
+            consult.DoctorName,
             consult.IsCanceled
         )).ToList();
     }
@@ -67,8 +74,8 @@ public class ConsultService : IConsultService
             consult.Id,
             consult.Description,
             consult.DateTimeQuery,
-            consult.IdPatient,
-            consult.IdDoctor,
+            consult.IdPatient.Id,
+            consult.IdDoctor.Id,
             consult.IsCanceled
         );
 
@@ -77,14 +84,18 @@ public class ConsultService : IConsultService
 
     public async Task AddAsync(ConsultDTO consultDTO)
     {
+        var patient = new Patient { Id = consultDTO.IdPatient };
+        var doctor = new Doctor { Id = consultDTO.IdDoctor };
+
         var consult = new Consult
         {
             Description = consultDTO.Description,
             DateTimeQuery = consultDTO.DateTimeQuery,
-            IdPatient = consultDTO.IdPatient,
-            IdDoctor = consultDTO.IdDoctor,
+            IdPatient = patient,
+            IdDoctor = doctor,
             IsCanceled = consultDTO.IsCanceled,
         };
+
         await _consultRepository.AddAsync(consult);
     }
 
@@ -97,10 +108,13 @@ public class ConsultService : IConsultService
             throw new ApplicationException("Consulta não encontrada");
         }
 
-        consult.IdDoctor = consultDTO.IdDoctor;
+        var patient = new Patient { Id = consultDTO.IdPatient };
+        var doctor = new Doctor { Id = consultDTO.IdDoctor };
+
+        consult.IdDoctor = doctor;
         consult.Description = consultDTO.Description;
         consult.DateTimeQuery = consultDTO.DateTimeQuery;
-        consult.IdPatient = consultDTO.IdPatient;
+        consult.IdPatient = patient;
         consult.IsCanceled = consultDTO.IsCanceled;
 
         await _consultRepository.UpdateAsync(consult);

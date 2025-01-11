@@ -32,7 +32,7 @@ public class DoctorController : ControllerBase
     }
 
     [HttpGet("{id}")]
-    public async Task<ActionResult<DoctorDTO>> GetById(int id)
+    public async Task<ActionResult<IsActiveDoctorDTO>> GetById(int id)
     {
         try
         {
@@ -79,9 +79,9 @@ public class DoctorController : ControllerBase
         {
             var id = await _doctorService.AddAsync(doctor);
 
-            var doctorWithActiveStatus = doctor with { IsActive = true };
+            //var doctorWithActiveStatus = doctor with { IsActive = true };
 
-            return CreatedAtAction(nameof(GetById), new { id }, doctorWithActiveStatus);
+            return CreatedAtAction(nameof(GetById), new { id });
         }
         catch (Exception ex)
         {

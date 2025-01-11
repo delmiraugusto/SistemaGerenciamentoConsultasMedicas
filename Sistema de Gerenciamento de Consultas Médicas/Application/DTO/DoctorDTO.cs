@@ -9,5 +9,4 @@ public record class DoctorDTO(
     string? Telephone, 
     string? Crm, 
     string? PasswordHash,
-    string? Specialty, 
-    bool? IsActive);
+    string? Specialty);

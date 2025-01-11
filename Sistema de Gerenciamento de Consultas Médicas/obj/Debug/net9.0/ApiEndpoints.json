@@ -1,5 +1,57 @@
 [
   {
+    "ContainingType": "Sistema_de_Gerenciamento_de_Consultas_M\u00E9dicas.Controllers.ConsultController",
+    "Method": "GetAllDoctor",
+    "RelativePath": "api/Consult/doctorConsults/{doctorId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "doctorId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[Sistema_de_Gerenciamento_de_Consultas_M\u00E9dicas.Application.DTO.ConsultDTO, Sistema de Gerenciamento de Consultas M\u00E9dicas, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Sistema_de_Gerenciamento_de_Consultas_M\u00E9dicas.Controllers.ConsultController",
+    "Method": "GetAllPatient",
+    "RelativePath": "api/Consult/patientConsults/{pacienteId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "pacienteId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[Sistema_de_Gerenciamento_de_Consultas_M\u00E9dicas.Application.DTO.ConsultDTO, Sistema de Gerenciamento de Consultas M\u00E9dicas, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
     "ContainingType": "Sistema_de_Gerenciamento_de_Consultas_M\u00E9dicas.Controllers.DoctorController",
     "Method": "GetAllAsync",
     "RelativePath": "api/Doctor",
@@ -51,7 +103,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "Sistema_de_Gerenciamento_de_Consultas_M\u00E9dicas.Application.DTO.DoctorDTO",
+        "Type": "Sistema_de_Gerenciamento_de_Consultas_M\u00E9dicas.Application.DTO.IsActiveDoctorDTO",
         "MediaTypes": [
           "text/plain",
           "application/json",

@@ -5,8 +5,8 @@ namespace Sistema_de_Gerenciamento_de_Consultas_Médicas.Domain.IService;
 
 public interface IConsultService
 {
-    Task<IEnumerable<ConsultDTO>> GetPatientAsync(int idPatient);
-    Task<IEnumerable<ConsultDTO>> GetDoctorAsync(int idDoctor);
+    Task<IEnumerable<PatientConsultDTO>> GetConsultByPatientIdAsync(int idPatient);
+    Task<IEnumerable<DoctorConsultDTO>> GetConsultByDoctorIdAsync(int idDoctor);
     Task<ConsultDTO> GetByIdAsync(int id);
     Task AddAsync(ConsultDTO consultDTO);
     Task UpdateAsync(int id, ConsultDTO consultDTO);
