@@ -1,5 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Sistema_de_Gerenciamento_de_Consultas_Médicas.Application.DTO;
+using Sistema_de_Gerenciamento_de_Consultas_Médicas.Domain.Entities;
 using Sistema_de_Gerenciamento_de_Consultas_Médicas.Domain.IService;
 
 namespace Sistema_de_Gerenciamento_de_Consultas_Médicas.Controllers;
@@ -43,7 +45,7 @@ public class ConsultController : ControllerBase
         }
         catch(Exception ex)
         {
-            return StatusCode(500, $"Erro ao obter as consultas: {ex.Message}");
+            return StatusCode(500, $"Nenhuma consulta para o paciente com o Id: {ex.Message}");
         }
     }
 
@@ -78,6 +80,84 @@ public class ConsultController : ControllerBase
         catch (Exception ex)
         {
             return StatusCode(500, $"Erro ao obter as consultas: {ex.Message}");
+        }
+    }
+
+    [HttpGet("{id}")]
+    public async Task<ActionResult<IEnumerable<ConsultDTO>>> GetById(int id)
+    {
+        try
+        {
+            var consult = await _consultService.GetByIdAsync(id);
+            if (consult == null)
+            {
+                return NotFound($"Nenhuma consulta com o Id: {id}.");
+            }
+
+            var formattedConsult = new
+            {
+                consult.Id,
+                consult.Description,
+                DateTimeQuery = consult.DateTimeQuery.ToString("dd-MM-yyyy HH:mm:ss"),
+                consult.IdPatient,
+                consult.PatientName,
+                consult.IdDoctor,
+                consult.DoctorName,
+                consult.DoctorTelephone,
+                consult.DoctorSpecialty,
+                consult.IsCanceled
+            };
+
+            return Ok(formattedConsult);
+        }
+        catch (Exception ex)
+        {
+            return StatusCode(500, $"Erro ao obter a consulta: {ex.Message}");
+        }
+    }
+
+    [HttpPost]
+    public async Task<ActionResult> Add([FromBody] Consult consult)
+    {
+
+        if (!ModelState.IsValid)
+        {
+            return BadRequest(ModelState);
+        }
+
+        try
+        {
+            await _consultService.AddAsync(consult);
+            return CreatedAtAction(nameof(GetById), new { id = consult.Id }, consult);
+        }
+        catch (Exception ex)
+        {
+            return StatusCode(500, $"Erro ao adicionar a consulta: {ex.Message}");
+        }
+    }
+
+
+    [HttpPut("{id}")]
+    public async Task<ActionResult> Update(int id, [FromBody] ConsultDTO consult)
+    {
+        if (id != consult.Id)
+        {
+            return BadRequest("Id da consulta no corpo da requisição difere do Id informado na URL.");
+        }
+
+        if (!ModelState.IsValid)
+        {
+            return BadRequest(ModelState);
+        }
+
+        try
+        {
+            await _consultService.UpdateAsync(id, consult);
+            return Ok(consult);
+        }
+        catch (Exception ex)
+        {
+            return StatusCode(500, $"Erro ao atualizar a consulta: {ex.Message}");
         }
     }
 

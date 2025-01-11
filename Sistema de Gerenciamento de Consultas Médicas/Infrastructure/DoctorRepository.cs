@@ -22,7 +22,8 @@ namespace Sistema_de_Gerenciamento_de_Consultas_Médicas.Domain.Infrastructure
             var query = @"
             SELECT *
             FROM Doctor d
-            WHERE IsActive = TRUE";
+            WHERE IsActive = TRUE
+            ORDER BY d.Name";
             try
             {
                 using (var connection = _dbConnection.GetConnection())
@@ -62,7 +63,7 @@ namespace Sistema_de_Gerenciamento_de_Consultas_Médicas.Domain.Infrastructure
         {
             var query = @"
                 INSERT INTO Doctor (Name, Email, PasswordHash, Telephone, Crm, Specialty, IsActive) 
-                VALUES (@Name, @Email, @PasswordHash, @Telephone, @Crm, @Specialty, @IsActive)
+                    VALUES (@Name, @Email, @PasswordHash, @Telephone, @Crm, @Specialty, @IsActive)
                 RETURNING Id;";
 
             using (var connection = _dbConnection.GetConnection())
@@ -117,7 +118,7 @@ namespace Sistema_de_Gerenciamento_de_Consultas_Médicas.Domain.Infrastructure
                 }
                 catch (Exception ex)
                 {
-                    throw new ApplicationException("Erro ao atualizar o médico.");
+                    throw new ApplicationException("Erro a atualizar o médico.");
                 }
             }
         }

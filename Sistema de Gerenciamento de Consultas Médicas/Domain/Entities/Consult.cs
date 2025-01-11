@@ -7,19 +7,20 @@ public class Consult
     public int Id { get; set; }
     public string Description { get; set; }
     public DateTime DateTimeQuery { get; set; }
-    public Patient IdPatient { get; set; }
-    public Doctor IdDoctor { get; set; }
+    public int IdPatient { get; set; }
+    public int IdDoctor { get; set; }
     public bool IsCanceled { get; set; } = false;
 
     public Consult() { }
 
-    public Consult(int id, string description, DateTime dateTimeQuery, Patient idPatient, Doctor idDoctor)
+    public Consult(int id, string description, DateTime dateTimeQuery, int idPatient, int idDoctor, bool isCanceled)
     {
         Id = id;
         Description = description;
         DateTimeQuery = dateTimeQuery;
         IdPatient = idPatient;
         IdDoctor = idDoctor;
+        IsCanceled = isCanceled;
     }
 
 }

@@ -1,4 +1,6 @@
-﻿using Dapper;
+﻿using System.Linq;
+using System.Numerics;
+using Dapper;
 using Sistema_de_Gerenciamento_de_Consultas_Médicas.Application.DTO;
 using Sistema_de_Gerenciamento_de_Consultas_Médicas.Data;
 using Sistema_de_Gerenciamento_de_Consultas_Médicas.Domain.Entities;
@@ -32,7 +34,8 @@ public class ConsultRepository : IConsultRepository
         FROM Consult c
         JOIN Doctor d ON c.id_doctor = d.id
         JOIN Patient p ON c.id_patient = p.id
-        WHERE c.id_patient = @IdPatient AND c.IsCanceled = false;";
+        WHERE c.id_patient = @IdPatient AND c.IsCanceled = false
+        ORDER BY c.DateTimeQuery;";
 
         using (var connection = _dbConnection.GetConnection())
         {
@@ -63,7 +66,8 @@ public class ConsultRepository : IConsultRepository
         FROM Consult c
         JOIN Patient p ON c.id_patient = p.id
         JOIN Doctor d ON c.id_doctor = d.id
-        WHERE d.id = @idDoctor AND c.IsCanceled = false;";
+        WHERE d.id = @idDoctor AND c.IsCanceled = false
+        ORDER BY c.DateTimeQuery;";
 
 
         using (var connection = _dbConnection.GetConnection())
@@ -78,62 +82,85 @@ public class ConsultRepository : IConsultRepository
         }
     }
 
-
-    public async Task<Consult> GetByIdAsync(int id)
+    public async Task<ConsultDTO> GetByIdAsync(int id)
     {
         var query = @"
         SELECT 
             c.id AS Id, 
             c.description AS Description, 
             c.DateTimeQuery, 
-            c.IsCanceled,
-            p.id AS PatientId, 
+            p.id AS IdPatient,
             p.Name AS PatientName,
-            m.id AS DoctorId, 
-            m.Name AS DoctorName,
-            m.specialty AS DoctorSpecialty
+            d.id AS IdDoctor,
+            d.Name AS DoctorName,
+            d.Telephone AS DoctorTelephone,
+            d.specialty AS DoctorSpecialty,
+            c.IsCanceled
         FROM Consult c
         JOIN Patient p ON c.id_patient = p.id
-        JOIN Doctor m ON c.id_doctor = m.id
+        JOIN Doctor d ON c.id_doctor = d.id
         WHERE c.id = @Id";
 
         using (var connection = _dbConnection.GetConnection())
         {
-            var consult = await connection.QueryAsync<Consult, Patient, Doctor, Consult>(
-                query,
-                (consult, patient, doctor) =>
-                {
-                    consult.IdPatient = patient;
-                    consult.IdDoctor = doctor;
-                    return consult;
-                },
-                new { Id = id },
-                splitOn: "PatientId,DoctorId"
-            );
+            var consult = await connection.QuerySingleOrDefaultAsync<ConsultDTO>(query, new { Id = id });
+            return consult == null ? throw new KeyNotFoundException($"Consulta com o Id: {id} não encontrada") : consult;
 
-            return consult.FirstOrDefault() ?? throw new KeyNotFoundException($"Consulta com o ID {id} não foi encontrada.");
         }
     }
+    public async Task<Consult> AddAsync(Consult consult)
+    {
+        var query = @"
+        INSERT INTO Consult (Description, DateTimeQuery, id_patient, id_doctor) 
+        VALUES (@Description, @DateTimeQuery, @idPatient, @idDoctor)
+        RETURNING Id";
 
+        using (var connection = _dbConnection.GetConnection())
+        {
+            try
+            {
+                var newConsultId = await connection.ExecuteScalarAsync<int>(query, consult);
+
+                consult.Id = newConsultId;
+                return consult;
+            }
+            catch (Exception ex)
+            {
+                throw new ApplicationException("Erro ao adicionar a consulta." + ex.Message);
+            }
+        }
+    }
 
     public async Task UpdateAsync(Consult consult)
     {
-        var query = "UPDATE Consult SET Description = @Description, DateTimeQuery = @DateTimeQuery WHERE Id = @Id";
+        var query = @"
+        UPDATE Consult 
+            SET Description = @Description, 
+            DateTimeQuery = @DateTimeQuery 
+        WHERE Id = @Id";
         using (var connection = _dbConnection.GetConnection())
         {
-            await connection.ExecuteAsync(query, consult);
+            try 
+            {
+                var affectedRows = await connection.ExecuteAsync(query, new
+                {
+                    consult.Description,
+                    consult.DateTimeQuery,
+                    consult.IdPatient,
+                    consult.IdDoctor,
+                    consult.IsCanceled,
+                });
+                if (affectedRows == 0)
+                {
+                    throw new KeyNotFoundException("Consulta não encontrado.");
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new ApplicationException("Erro a atualizar a Consulta.");
+            }
         }
     }
-
-    public async Task AddAsync(Consult consult)
-    {
-        var query = "INSERT INTO Consult (Description, DateTimeQuery, PatientId, DoctorId) VALUES (@Description, @DateTimeQuery, @PatientId, @DoctorId)";
-        using (var connection = _dbConnection.GetConnection())
-        {
-            await connection.ExecuteAsync(query, consult);
-        }
-    }
-
     public async Task CancelAsync(int id)
     {
         var query = "UPDATE Consult SET IsCanceled = 1 WHERE id = @Id";

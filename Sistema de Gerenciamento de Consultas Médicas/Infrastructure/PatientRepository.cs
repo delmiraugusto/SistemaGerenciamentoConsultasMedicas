@@ -18,7 +18,8 @@ namespace Sistema_de_Gerenciamento_de_Consultas_Médicas.Domain.Infrastructure
 
         public async Task<IEnumerable<Patient>> GetAllAsync()
         {
-            var query = "SELECT * FROM Patient";
+            var query = "SELECT * FROM Patient p " +
+                        "ORDER BY p.NAME";
             using (var connection = _dbConnection.GetConnection())
             {
                 return await connection.QueryAsync<Patient>(query);

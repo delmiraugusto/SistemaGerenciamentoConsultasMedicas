@@ -79,8 +79,6 @@ public class DoctorController : ControllerBase
         {
             var id = await _doctorService.AddAsync(doctor);
 
-            //var doctorWithActiveStatus = doctor with { IsActive = true };
-
             return CreatedAtAction(nameof(GetById), new { id });
         }
         catch (Exception ex)

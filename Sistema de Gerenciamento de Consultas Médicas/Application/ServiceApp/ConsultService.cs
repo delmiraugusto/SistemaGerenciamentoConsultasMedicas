@@ -1,4 +1,6 @@
-﻿using Sistema_de_Gerenciamento_de_Consultas_Médicas.Application.DTO;
+﻿using System.Numerics;
+using System.Runtime.ConstrainedExecution;
+using Sistema_de_Gerenciamento_de_Consultas_Médicas.Application.DTO;
 using Sistema_de_Gerenciamento_de_Consultas_Médicas.Domain.Entities;
 using Sistema_de_Gerenciamento_de_Consultas_Médicas.Domain.IRepository;
 using Sistema_de_Gerenciamento_de_Consultas_Médicas.Domain.IService;
@@ -74,30 +76,45 @@ public class ConsultService : IConsultService
             consult.Id,
             consult.Description,
             consult.DateTimeQuery,
-            consult.IdPatient.Id,
-            consult.IdDoctor.Id,
+            consult.IdPatient,
+            consult.PatientName,
+            consult.IdDoctor,
+            consult.DoctorName,
+            consult.DoctorTelephone,
+            consult.DoctorSpecialty,
             consult.IsCanceled
         );
 
     }
 
-
-    public async Task AddAsync(ConsultDTO consultDTO)
+    public async Task<int> AddAsync(Consult consult)
     {
-        var patient = new Patient { Id = consultDTO.IdPatient };
-        var doctor = new Doctor { Id = consultDTO.IdDoctor };
 
-        var consult = new Consult
+        if (string.IsNullOrEmpty(consult.Description))
+            throw new ArgumentException("A descrição é obrigatória.");
+
+        if (consult.DateTimeQuery == default(DateTime))
+            throw new ArgumentException("A data da consulta é obrigatória.");
+
+        if (consult.IdPatient <= 0)
+            throw new ArgumentException("O ID do paciente é obrigatório e deve ser maior que 0.");
+
+        if (consult.IdDoctor <= 0)
+            throw new ArgumentException("O ID do médico é obrigatório e deve ser maior que 0.");
+
+        var consultNew = new Consult
         {
-            Description = consultDTO.Description,
-            DateTimeQuery = consultDTO.DateTimeQuery,
-            IdPatient = patient,
-            IdDoctor = doctor,
-            IsCanceled = consultDTO.IsCanceled,
+            Description = consult.Description,
+            DateTimeQuery = consult.DateTimeQuery,
+            IdPatient = consult.IdPatient,
+            IdDoctor = consult.IdDoctor,
+            IsCanceled = consult.IsCanceled,
         };
 
-        await _consultRepository.AddAsync(consult);
+        await _consultRepository.AddAsync(consultNew);
+        return consult.Id;
     }
+
 
     public async Task UpdateAsync(int id, ConsultDTO consultDTO)
     {
@@ -108,16 +125,12 @@ public class ConsultService : IConsultService
             throw new ApplicationException("Consulta não encontrada");
         }
 
-        var patient = new Patient { Id = consultDTO.IdPatient };
-        var doctor = new Doctor { Id = consultDTO.IdDoctor };
+        if (consultDTO.Id != id)
+        {
+            throw new ApplicationException("O ID não pode ser alterado.");
+        }
 
-        consult.IdDoctor = doctor;
-        consult.Description = consultDTO.Description;
-        consult.DateTimeQuery = consultDTO.DateTimeQuery;
-        consult.IdPatient = patient;
-        consult.IsCanceled = consultDTO.IsCanceled;
-
-        await _consultRepository.UpdateAsync(consult);
+        //await _consultRepository.UpdateAsync(consult);
     }
 
     public async Task CancelAsync(int id)

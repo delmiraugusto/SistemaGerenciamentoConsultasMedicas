@@ -2,10 +2,14 @@
   "ExpandedNodes": [
     "",
     "\\Sistema de Gerenciamento de Consultas M\u00E9dicas",
+    "\\Sistema de Gerenciamento de Consultas M\u00E9dicas\\Application",
+    "\\Sistema de Gerenciamento de Consultas M\u00E9dicas\\Application\\ServiceApp",
+    "\\Sistema de Gerenciamento de Consultas M\u00E9dicas\\Controllers",
     "\\Sistema de Gerenciamento de Consultas M\u00E9dicas\\Domain",
     "\\Sistema de Gerenciamento de Consultas M\u00E9dicas\\Domain\\Entities",
-    "\\Sistema de Gerenciamento de Consultas M\u00E9dicas\\Domain\\Infrastructure",
-    "\\Sistema de Gerenciamento de Consultas M\u00E9dicas\\Domain\\IRepository"
+    "\\Sistema de Gerenciamento de Consultas M\u00E9dicas\\Domain\\IRepository",
+    "\\Sistema de Gerenciamento de Consultas M\u00E9dicas\\Domain\\IService",
+    "\\Sistema de Gerenciamento de Consultas M\u00E9dicas\\Infrastructure"
   ],
   "SelectedNode": "\\Sistema de Gerenciamento de Consultas M\u00E9dicas.sln",
   "PreviewInSolutionExplorer": false
