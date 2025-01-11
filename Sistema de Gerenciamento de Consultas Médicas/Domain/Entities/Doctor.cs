@@ -8,10 +8,10 @@ public class Doctor : Person
     public string Crm { get; set; }
     public bool IsActive { get; set; } = true;
     public override Role Funcao => Role.Medico;
-    public Specialty Specialty { get; set; }
+    public string Specialty { get; set; }
     public Doctor() { }
 
-    public Doctor(int id, string name, string email, string passwordHash, string telephone, string crm)
+    public Doctor(int id, string name, string email, string passwordHash, string telephone, string crm, string specialty)
     {
         Id = id;
         Name = name;
@@ -19,5 +19,6 @@ public class Doctor : Person
         PasswordHash = passwordHash;
         Telephone = telephone;
         Crm = crm;
+        Specialty = specialty;
     }
 }

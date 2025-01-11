@@ -18,5 +18,110 @@
         "StatusCode": 200
       }
     ]
+  },
+  {
+    "ContainingType": "Sistema_de_Gerenciamento_de_Consultas_M\u00E9dicas.Controllers.DoctorController",
+    "Method": "Add",
+    "RelativePath": "api/Doctor",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "doctor",
+        "Type": "Sistema_de_Gerenciamento_de_Consultas_M\u00E9dicas.Application.DTO.DoctorDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Sistema_de_Gerenciamento_de_Consultas_M\u00E9dicas.Controllers.DoctorController",
+    "Method": "GetById",
+    "RelativePath": "api/Doctor/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Sistema_de_Gerenciamento_de_Consultas_M\u00E9dicas.Application.DTO.DoctorDTO",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Sistema_de_Gerenciamento_de_Consultas_M\u00E9dicas.Controllers.DoctorController",
+    "Method": "Update",
+    "RelativePath": "api/Doctor/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "doctorDTO",
+        "Type": "Sistema_de_Gerenciamento_de_Consultas_M\u00E9dicas.Application.DTO.DoctorDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Sistema_de_Gerenciamento_de_Consultas_M\u00E9dicas.Controllers.DoctorController",
+    "Method": "Cancel",
+    "RelativePath": "api/Doctor/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Sistema_de_Gerenciamento_de_Consultas_M\u00E9dicas.Controllers.DoctorController",
+    "Method": "GetByEmail",
+    "RelativePath": "api/Doctor/email/{email}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "email",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Sistema_de_Gerenciamento_de_Consultas_M\u00E9dicas.Application.DTO.DoctorDTO",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
   }
 ]

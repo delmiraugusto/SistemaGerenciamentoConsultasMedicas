@@ -20,24 +20,9 @@ namespace Sistema_de_Gerenciamento_de_Consultas_Médicas.Domain.Infrastructure
         public async Task<IEnumerable<Doctor>> GetAllAsync()
         {
             var query = @"
-            SELECT 
-                d.Id,
-                d.Name,
-                d.Email,
-                d.PasswordHash,
-                d.Telephone,
-                d.Crm,
-                d.IsActive,
-                d.Funcao,
-                d.SpecialtyId,
-                s.Name AS SpecialtyName
-            FROM 
-                Doctor d
-            LEFT JOIN 
-                Specialty s 
-            ON 
-                d.SpecialtyId = s.Id";
-
+            SELECT *
+            FROM Doctor d
+            WHERE IsActive = TRUE";
             try
             {
                 using (var connection = _dbConnection.GetConnection())
@@ -47,7 +32,7 @@ namespace Sistema_de_Gerenciamento_de_Consultas_Médicas.Domain.Infrastructure
             }
             catch (Exception ex)
             {
-                throw new ApplicationException("Erro ao buscar os médicos. Consulte o log para mais detalhes." + ex.Message);
+                throw new ApplicationException("Erro ao buscar os médicos.");
             }
         }
 
@@ -55,7 +40,7 @@ namespace Sistema_de_Gerenciamento_de_Consultas_Médicas.Domain.Infrastructure
 
         public async Task<Doctor> GetByEmailAsync(string email)
         {
-            var query = "SELECT * FROM Doctor WHERE email = @Email"; // Correção aqui
+            var query = "SELECT * FROM Doctor WHERE email = @Email";
             using (var connection = _dbConnection.GetConnection())
             {
                 var doctor = await connection.QueryFirstOrDefaultAsync<Doctor>(query, new { Email = email });
@@ -73,46 +58,42 @@ namespace Sistema_de_Gerenciamento_de_Consultas_Médicas.Domain.Infrastructure
             }
         }
 
-        public async Task AddAsync(Doctor doctor)
+        public async Task<Doctor> AddAsync(Doctor doctor)
         {
             var query = @"
-        INSERT INTO Doctor (Name, Email, PasswordHash, Telephone, Crm, SpecialtyId, IsActive) 
-        VALUES (@Name, @Email, @PasswordHash, @Telephone, @Crm, @SpecialtyId, @IsActive)";
+                INSERT INTO Doctor (Name, Email, PasswordHash, Telephone, Crm, Specialty, IsActive) 
+                VALUES (@Name, @Email, @PasswordHash, @Telephone, @Crm, @Specialty, @IsActive)
+                RETURNING Id;";
+
             using (var connection = _dbConnection.GetConnection())
             {
                 try
                 {
-                    await connection.ExecuteAsync(query, new
-                    {
-                        doctor.Name,
-                        doctor.Email,
-                        doctor.PasswordHash,
-                        doctor.Telephone,
-                        doctor.Crm,
-                        doctor.Specialty,
-                        doctor.IsActive
-                    });
+                    var newDoctorId = await connection.ExecuteScalarAsync<int>(query, doctor);
+
+                    doctor.Id = newDoctorId;
+                    return doctor;
                 }
                 catch (Exception ex)
                 {
-                    throw new ApplicationException("Erro ao adicionar um novo médico.", ex);
+                    throw new ApplicationException("Erro ao adicionar médico." + ex.Message);
                 }
             }
         }
 
-
         public async Task UpdateAsync(Doctor doctor)
         {
             var query = @"
-                    UPDATE Doctor 
-                    SET Name = @Name, 
-                        Email = @Email, 
-                        PasswordHash = @PasswordHash, 
-                        Telephone = @Telephone, 
-                        Crm = @Crm, 
-                        SpecialtyId = @SpecialtyId, 
-                        IsActive = @IsActive 
-                    WHERE Id = @Id";
+            UPDATE Doctor 
+            SET Name = @Name, 
+                Email = @Email, 
+                PasswordHash = @PasswordHash, 
+                Telephone = @Telephone, 
+                Crm = @Crm, 
+                Specialty = @Specialty, 
+                IsActive = @IsActive 
+            WHERE Id = @Id";
+
             using (var connection = _dbConnection.GetConnection())
             {
                 try
@@ -131,15 +112,16 @@ namespace Sistema_de_Gerenciamento_de_Consultas_Médicas.Domain.Infrastructure
 
                     if (affectedRows == 0)
                     {
-                        throw new KeyNotFoundException("Médico não encontrado para atualização.");
+                        throw new KeyNotFoundException("Médico não encontrado.");
                     }
                 }
                 catch (Exception ex)
                 {
-                    throw new ApplicationException("Erro ao atualizar o médico.", ex);
+                    throw new ApplicationException("Erro ao atualizar o médico.");
                 }
             }
         }
+
 
 
         public async Task CancelAsync(int id)

@@ -31,5 +31,101 @@ public class DoctorController : ControllerBase
         }
     }
 
+    [HttpGet("{id}")]
+    public async Task<ActionResult<DoctorDTO>> GetById(int id)
+    {
+        try
+        {
+            var doctor = await _doctorService.GetByIdAsync(id);
+            if (doctor == null)
+            {
+                return NotFound($"Médico com id: {id} não encontrado.");
+            }
+            return Ok(doctor);
+        }
+        catch (Exception ex)
+        {
+            return StatusCode(500, $"Erro ao obter o médico: {ex.Message}");
+        }
+    }
+
+    [HttpGet("email/{email}")]
+    public async Task<ActionResult<DoctorDTO>> GetByEmail(string email)
+    {
+        try
+        {
+            var doctor = await _doctorService.GetByEmailAsync(email);
+            if (doctor == null)
+            {
+                return NotFound($"Médico com email: {email} não encontrado.");
+            }
+            return Ok(doctor);
+        }
+        catch (Exception ex)
+        {
+            return StatusCode(500, $"Erro ao obter o médico: {ex.Message}");
+        }
+    }
+
+    [HttpPost]
+    public async Task<ActionResult> Add([FromBody] DoctorDTO doctor)
+    {
+        if (!ModelState.IsValid)
+        {
+            return BadRequest(ModelState);
+        }
+
+        try
+        {
+            var id = await _doctorService.AddAsync(doctor);
+
+            var doctorWithActiveStatus = doctor with { IsActive = true };
+
+            return CreatedAtAction(nameof(GetById), new { id }, doctorWithActiveStatus);
+        }
+        catch (Exception ex)
+        {
+            return StatusCode(500, $"Erro ao adicionar o médico: {ex.Message}");
+        }
+    }
+
+
+    [HttpPut("{id}")]
+    public async Task<ActionResult> Update(int id, [FromBody] DoctorDTO doctorDTO)
+    {
+        if (id != doctorDTO.Id)
+        {
+            return BadRequest("Id do médico no corpo da requisição difere do Id informado na URL.");
+        }
+
+        if (!ModelState.IsValid)
+        {
+            return BadRequest(ModelState);
+        }
+
+        try
+        {
+            await _doctorService.UpdateAsync(id, doctorDTO);
+            return Ok(doctorDTO);
+        }
+        catch (Exception ex)
+        {
+            return StatusCode(500, $"Erro ao atualizar o usuário: {ex.Message}");
+        }
+    }
+
+    [HttpDelete("{id}")]
+    public async Task<ActionResult> Cancel(int id)
+    {
+        try
+        {
+            await _doctorService.CancelAsync(id);
+            return NoContent();
+        }
+        catch (Exception ex)
+        {
+            return StatusCode(500, $"Erro ao desativar o médico: {ex.Message}");
+        }
+    }
 
 }

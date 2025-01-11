@@ -1,4 +1,5 @@
-﻿using Sistema_de_Gerenciamento_de_Consultas_Médicas.Application.DTO;
+﻿using System.Linq;
+using Sistema_de_Gerenciamento_de_Consultas_Médicas.Application.DTO;
 using Sistema_de_Gerenciamento_de_Consultas_Médicas.Domain.Entities;
 using Sistema_de_Gerenciamento_de_Consultas_Médicas.Domain.IRepository;
 using Sistema_de_Gerenciamento_de_Consultas_Médicas.Domain.IService;
@@ -29,6 +30,7 @@ public class DoctorService : IDoctorService
             doctor.Email,
             doctor.Telephone,
             doctor.Crm,
+            doctor.PasswordHash,
             doctor.Specialty,
             doctor.IsActive
         )).ToList();
@@ -49,6 +51,7 @@ public class DoctorService : IDoctorService
             doctor.Email,
             doctor.Telephone,
             doctor.Crm,
+            doctor.PasswordHash,
             doctor.Specialty,
             doctor.IsActive
         );
@@ -70,39 +73,54 @@ public class DoctorService : IDoctorService
             doctor.Email,
             doctor.Telephone,
             doctor.Crm,
+            doctor.PasswordHash,
             doctor.Specialty,
             doctor.IsActive
         );
     }
 
-    public async Task AddAsync(DoctorDTO doctorDTO)
+    public async Task<int> AddAsync(DoctorDTO doctorDTO)
     {
         var doctor = new Doctor
         {
             Name = doctorDTO.Name,
             Email = doctorDTO.Email,
             Specialty = doctorDTO.Specialty,
-            IsActive = doctorDTO.IsActive
+            IsActive = true,
+            PasswordHash = doctorDTO.PasswordHash,
+            Telephone = doctorDTO.Telephone, 
+            Crm = doctorDTO.Crm
         };
 
         await _doctorRepository.AddAsync(doctor);
+        return doctor.Id;
     }
 
-    public async Task UpdateAsync(DoctorDTO doctorDTO)
+    public async Task UpdateAsync(int id, DoctorDTO doctorDTO)
     {
-        var doctor = await _doctorRepository.GetByIdAsync(doctorDTO.Id);
+        var doctor = await _doctorRepository.GetByIdAsync(id);
 
         if (doctor == null)
         {
             throw new ApplicationException("Médico não encontrado.");
         }
 
-        doctor.Name = doctorDTO.Name;
-        doctor.Email = doctorDTO.Email;
-        doctor.Telephone = doctorDTO.Telephone;
-        doctor.Crm = doctorDTO.Crm;
-        doctor.Specialty = doctorDTO.Specialty;
-        doctor.IsActive = doctorDTO.IsActive;
+        if (doctorDTO.Id != id)
+        {
+            throw new ApplicationException("O ID não pode ser alterado.");
+        }
+
+        if (!string.IsNullOrEmpty(doctorDTO.Crm) && doctorDTO.Crm != doctor.Crm)
+        {
+            throw new ApplicationException("O CRM não pode ser alterado.");
+        }
+
+        if (!string.IsNullOrEmpty(doctorDTO.Name)) doctor.Name = doctorDTO.Name;
+        if (!string.IsNullOrEmpty(doctorDTO.Email)) doctor.Email = doctorDTO.Email;
+        if (!string.IsNullOrEmpty(doctorDTO.Telephone)) doctor.Telephone = doctorDTO.Telephone;
+        if (!string.IsNullOrEmpty(doctorDTO.Specialty)) doctor.Specialty = doctorDTO.Specialty;
+        if (!string.IsNullOrEmpty(doctorDTO.PasswordHash)) doctor.PasswordHash = doctorDTO.PasswordHash;
+        if (doctorDTO.IsActive.HasValue) doctor.IsActive = doctorDTO.IsActive.Value;
 
         await _doctorRepository.UpdateAsync(doctor);
     }
