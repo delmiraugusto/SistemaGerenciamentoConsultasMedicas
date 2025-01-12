@@ -138,7 +138,7 @@ namespace Sistema_de_Gerenciamento_de_Consultas_Médicas.Domain.Infrastructure
 
         public async Task<bool> HasConsultsAsync(int doctorId)
         {
-            var query = "SELECT COUNT(1) FROM Consult WHERE IdDoctor = @DoctorId";
+            var query = "SELECT COUNT(1) FROM Consult WHERE Id_Doctor = @DoctorId";
             using (var connection = _dbConnection.GetConnection())
             {
                 var count = await connection.ExecuteScalarAsync<int>(query, new { DoctorId = doctorId });

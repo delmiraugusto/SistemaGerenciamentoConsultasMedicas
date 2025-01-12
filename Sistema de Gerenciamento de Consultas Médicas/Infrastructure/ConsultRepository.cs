@@ -66,7 +66,7 @@ public class ConsultRepository : IConsultRepository
         FROM Consult c
         JOIN Patient p ON c.id_patient = p.id
         JOIN Doctor d ON c.id_doctor = d.id
-        WHERE d.id = @idDoctor AND c.IsCanceled = false
+        WHERE d.id = @idDoctor
         ORDER BY c.DateTimeQuery;";
 
 
@@ -164,7 +164,6 @@ public class ConsultRepository : IConsultRepository
             }
         }
     }
-
 
     public async Task CancelAsync(int id)
     {

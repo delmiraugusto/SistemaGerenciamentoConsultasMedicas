@@ -127,7 +127,7 @@ public class ConsultService : IConsultService
 
         var updatedConsult = new Consult
         {
-            Id = editConsult.Id, // Manter o Id original
+            Id = editConsult.Id, 
             Description = consultDTO.Description ?? editConsult.Description,
             DateTimeQuery = consultDTO.DateTimeQuery ?? editConsult.DateTimeQuery,
             IsCanceled = consultDTO.IsCanceled ?? editConsult.IsCanceled

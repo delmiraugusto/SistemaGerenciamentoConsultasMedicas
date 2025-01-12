@@ -74,12 +74,10 @@ public class DoctorController : ControllerBase
         {
             return BadRequest(ModelState);
         }
-
         try
         {
             var id = await _doctorService.AddAsync(doctor);
-
-            return CreatedAtAction(nameof(GetById), new { id });
+            return CreatedAtAction(nameof(GetById), new { id }, doctor);
         }
         catch (Exception ex)
         {

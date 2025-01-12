@@ -119,12 +119,10 @@ public class ConsultController : ControllerBase
     [HttpPost]
     public async Task<ActionResult> Add([FromBody] Consult consult)
     {
-
         if (!ModelState.IsValid)
         {
             return BadRequest(ModelState);
         }
-
         try
         {
             await _consultService.AddAsync(consult);
