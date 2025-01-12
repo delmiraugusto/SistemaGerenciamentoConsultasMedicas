@@ -1,5 +1,37 @@
 [
   {
+    "ContainingType": "Sistema_de_Gerenciamento_de_Consultas_M\u00E9dicas.Controllers.AuthController",
+    "Method": "Login",
+    "RelativePath": "api/auth/login",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "loginDTO",
+        "Type": "Sistema_de_Gerenciamento_de_Consultas_M\u00E9dicas.Application.DTO.LoginDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Sistema_de_Gerenciamento_de_Consultas_M\u00E9dicas.Controllers.AuthController",
+    "Method": "signUp",
+    "RelativePath": "api/auth/signUp",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "signUpDTO",
+        "Type": "Sistema_de_Gerenciamento_de_Consultas_M\u00E9dicas.Application.DTO.SignUpDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "Sistema_de_Gerenciamento_de_Consultas_M\u00E9dicas.Controllers.ConsultController",
     "Method": "Add",
     "RelativePath": "api/Consult",
@@ -80,7 +112,7 @@
   },
   {
     "ContainingType": "Sistema_de_Gerenciamento_de_Consultas_M\u00E9dicas.Controllers.ConsultController",
-    "Method": "GetAllDoctor",
+    "Method": "GetConsultByDoctor",
     "RelativePath": "api/Consult/doctorConsults/{doctorId}",
     "HttpMethod": "GET",
     "IsController": true,
@@ -106,7 +138,7 @@
   },
   {
     "ContainingType": "Sistema_de_Gerenciamento_de_Consultas_M\u00E9dicas.Controllers.ConsultController",
-    "Method": "GetAllPatient",
+    "Method": "GetConsultByPatient",
     "RelativePath": "api/Consult/patientConsults/{pacienteId}",
     "HttpMethod": "GET",
     "IsController": true,

@@ -72,3 +72,8 @@ C:\Users\Augusto\Documents\TrabalhoT2m\Sistema de Gerenciamento de Consultas Mé
 C:\Users\Augusto\Documents\TrabalhoT2m\Sistema de Gerenciamento de Consultas Médicas\Sistema de Gerenciamento de Consultas Médicas\obj\Debug\net9.0\Sistema de Gerenciamento de Consultas Médicas.pdb
 C:\Users\Augusto\Documents\TrabalhoT2m\Sistema de Gerenciamento de Consultas Médicas\Sistema de Gerenciamento de Consultas Médicas\obj\Debug\net9.0\Sistema de Gerenciamento de Consultas Médicas.genruntimeconfig.cache
 C:\Users\Augusto\Documents\TrabalhoT2m\Sistema de Gerenciamento de Consultas Médicas\Sistema de Gerenciamento de Consultas Médicas\obj\Debug\net9.0\ref\Sistema de Gerenciamento de Consultas Médicas.dll
+C:\Users\Augusto\Documents\TrabalhoT2m\Sistema de Gerenciamento de Consultas Médicas\Sistema de Gerenciamento de Consultas Médicas\bin\Debug\net9.0\Microsoft.IdentityModel.Abstractions.dll
+C:\Users\Augusto\Documents\TrabalhoT2m\Sistema de Gerenciamento de Consultas Médicas\Sistema de Gerenciamento de Consultas Médicas\bin\Debug\net9.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\Augusto\Documents\TrabalhoT2m\Sistema de Gerenciamento de Consultas Médicas\Sistema de Gerenciamento de Consultas Médicas\bin\Debug\net9.0\Microsoft.IdentityModel.Logging.dll
+C:\Users\Augusto\Documents\TrabalhoT2m\Sistema de Gerenciamento de Consultas Médicas\Sistema de Gerenciamento de Consultas Médicas\bin\Debug\net9.0\Microsoft.IdentityModel.Tokens.dll
+C:\Users\Augusto\Documents\TrabalhoT2m\Sistema de Gerenciamento de Consultas Médicas\Sistema de Gerenciamento de Consultas Médicas\bin\Debug\net9.0\System.IdentityModel.Tokens.Jwt.dll

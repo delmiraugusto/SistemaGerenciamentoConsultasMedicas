@@ -92,7 +92,7 @@ public class PatientService : IPatientService
 
     public async Task UpdateAsync(int id, PatientDTO patientDTO)
     {
-        var patient = await _patientRepository.GetByIdAsync(patientDTO.Id);
+        var patient = await _patientRepository.GetByIdAsync(patientDTO.Id.Value);
 
         if (patient == null)
         {

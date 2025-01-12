@@ -17,7 +17,7 @@ public class ConsultController : ControllerBase
     }
 
     [HttpGet("patientConsults/{pacienteId}")]
-    public async Task<ActionResult<IEnumerable<ConsultDTO>>> GetAllPatient(int pacienteId)
+    public async Task<ActionResult<IEnumerable<ConsultDTO>>> GetConsultByPatient(int pacienteId)
     {
         try
         {
@@ -51,7 +51,7 @@ public class ConsultController : ControllerBase
 
 
     [HttpGet("doctorConsults/{doctorId}")]
-    public async Task<ActionResult<IEnumerable<ConsultDTO>>> GetAllDoctor(int doctorId)
+    public async Task<ActionResult<IEnumerable<ConsultDTO>>> GetConsultByDoctor(int doctorId)
     {
         try
         {

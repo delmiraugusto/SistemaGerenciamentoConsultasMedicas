@@ -1,8 +1,12 @@
+using System.Text.Json.Serialization;
+using System.Text.Json;
 using Sistema_de_Gerenciamento_de_Consultas_Médicas.Application.ServiceApp;
 using Sistema_de_Gerenciamento_de_Consultas_Médicas.Data;
 using Sistema_de_Gerenciamento_de_Consultas_Médicas.Domain.Infrastructure;
 using Sistema_de_Gerenciamento_de_Consultas_Médicas.Domain.IRepository;
 using Sistema_de_Gerenciamento_de_Consultas_Médicas.Domain.IService;
+using Sistema_de_Gerenciamento_de_Consultas_Médicas.Infrastructure;
+using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -17,6 +21,10 @@ builder.Services.AddScoped<IPatientRepository, PatientRepository>();
 builder.Services.AddScoped<IConsultService, ConsultService>();
 builder.Services.AddScoped<IConsultRepository, ConsultRepository>();
 
+builder.Services.AddScoped<IAuthService, AuthService>();
+builder.Services.AddScoped<IAuthRepository, AuthRepository>();
+
+
 
 
 
@@ -29,6 +37,14 @@ builder.Services.AddScoped<PostgresConnection>(provider =>
 {
     return new PostgresConnection(connectionString);
 });
+
+
+
+builder.Services.AddControllers()
+    .AddJsonOptions(options =>
+    {
+        options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter(JsonNamingPolicy.CamelCase));
+    });
 
 
 builder.Services.AddControllers();

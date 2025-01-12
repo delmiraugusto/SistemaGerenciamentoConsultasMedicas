@@ -3,7 +3,7 @@
 namespace Sistema_de_Gerenciamento_de_Consultas_Médicas.Application.DTO;
 
 public record class DoctorDTO(
-    int Id, 
+    int? Id, 
     string? Name, 
     string? Email, 
     string? Telephone, 

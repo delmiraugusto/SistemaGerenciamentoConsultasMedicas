@@ -146,40 +146,18 @@ namespace Sistema_de_Gerenciamento_de_Consultas_Médicas.Domain.Infrastructure
             }
         }
 
-        public static string CreatePassword(string password)
-        {
-            using (var shuffle = new HMACSHA512())
-            {
-                var passwordBytes = Encoding.UTF8.GetBytes(password);
-                var hash = shuffle.ComputeHash(passwordBytes);
-                return Convert.ToBase64String(hash);
-            }
-        }
-
-        public static bool VerifyPassword(string password, string storedHash)
-        {
-            var hash = Convert.FromBase64String(storedHash);
-            using (var shuffle = new HMACSHA512())
-            {
-                var passwordBytes = Encoding.UTF8.GetBytes(password);
-                var translate = shuffle.ComputeHash(passwordBytes);
-
-                return translate.SequenceEqual(hash);
-            }
-        }
-
-        public async Task<Doctor> AuthenticationAsync(string email, string password)
-        {
-            var doctor = await GetByEmailAsync(email);
-            if (doctor == null)
-            {
-                return null;
-            }
-            if (!VerifyPassword(password, doctor.PasswordHash))
-            {
-                return null;
-            }
-            return doctor;
-        }
+        //public async Task<Doctor> AuthenticationAsync(string email, string password)
+        //{
+        //    var doctor = await GetByEmailAsync(email);
+        //    if (doctor == null)
+        //    {
+        //        return null;
+        //    }
+        //    if (!VerifyPassword(password, doctor.PasswordHash))
+        //    {
+        //        return null;
+        //    }
+        //    return doctor;
+        //}
     }
 }

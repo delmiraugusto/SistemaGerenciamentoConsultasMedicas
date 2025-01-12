@@ -1,4 +1,5 @@
-﻿using System.Security.Cryptography;
+﻿using System.Numerics;
+using System.Security.Cryptography;
 using System.Text;
 using Dapper;
 using Sistema_de_Gerenciamento_de_Consultas_Médicas.Data;
@@ -46,13 +47,24 @@ namespace Sistema_de_Gerenciamento_de_Consultas_Médicas.Domain.Infrastructure
             }
         }
 
-        public async Task AddAsync(Patient patient)
+        public async Task<Patient> AddAsync(Patient patient)
         {
             var query = "INSERT INTO Patient (Name, Email, PasswordHash, Telephone, Age) " +
-                        "VALUES (@Name, @Email, @PasswordHash, @Telephone, @Age)";
+                        "VALUES (@Name, @Email, @PasswordHash, @Telephone, @Age)" +
+                        "RETURNING Id";
             using (var connection = _dbConnection.GetConnection())
             {
-                await connection.ExecuteAsync(query, patient);
+                try
+                {
+                    var newPatientId = await connection.ExecuteScalarAsync<int>(query, patient);
+
+                    patient.Id = newPatientId;
+                    return patient;
+                }
+                catch (Exception ex)
+                {
+                    throw new ApplicationException("Erro ao adicionar o paciente." + ex.Message);
+                }
             }
         }
 
@@ -89,41 +101,18 @@ namespace Sistema_de_Gerenciamento_de_Consultas_Médicas.Domain.Infrastructure
             }
         }
 
-
-        public async Task<Patient> AuthenticationAsync(string email, string password)
-        {
-            var patient = await GetByEmailAsync(email);
-            if (patient == null)
-            {
-                return null;
-            }
-            if (!VerifyPassword(password, patient.PasswordHash))
-            {
-                return null;
-            }
-            return patient;
-        }
-
-        public static string CreatePassword(string password)
-        {
-            using (var shuffle = new HMACSHA512())
-            {
-                var passwordBytes = Encoding.UTF8.GetBytes(password);
-                var hash = shuffle.ComputeHash(passwordBytes);
-                return Convert.ToBase64String(hash);
-            }
-        }
-
-        public static bool VerifyPassword(string password, string storedHash)
-        {
-            var hash = Convert.FromBase64String(storedHash);
-            using (var shuffle = new HMACSHA512())
-            {
-                var passwordBytes = Encoding.UTF8.GetBytes(password);
-                var translate = shuffle.ComputeHash(passwordBytes);
-
-                return translate.SequenceEqual(hash);
-            }
-        }
+        //public async Task<Patient> AuthenticationAsync(string email, string password)
+        //{
+        //    var patient = await GetByEmailAsync(email);
+        //    if (patient == null)
+        //    {
+        //        return null;
+        //    }
+        //    if (!VerifyPassword(password, patient.PasswordHash))
+        //    {
+        //        return null;
+        //    }
+        //    return patient;
+        //}
     }
 }
