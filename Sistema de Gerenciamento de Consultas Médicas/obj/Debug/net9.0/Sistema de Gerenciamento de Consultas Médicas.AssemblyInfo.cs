@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Sistema de Gerenciamento de Consultas Médicas")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ba0f9e051cc57ea789df348184eefc511d03ba11")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+cab18fd090399c5d01d6e238e41570d5e209af49")]
 [assembly: System.Reflection.AssemblyProductAttribute("Sistema de Gerenciamento de Consultas Médicas")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Sistema de Gerenciamento de Consultas Médicas")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
