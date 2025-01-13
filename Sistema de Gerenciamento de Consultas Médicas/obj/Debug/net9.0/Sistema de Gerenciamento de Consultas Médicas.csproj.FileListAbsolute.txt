@@ -83,3 +83,4 @@ C:\Users\Augusto\Documents\TrabalhoT2m\Sistema de Gerenciamento de Consultas Mé
 C:\Users\Augusto\Documents\TrabalhoT2m\Sistema de Gerenciamento de Consultas Médicas\Sistema de Gerenciamento de Consultas Médicas\bin\Debug\net9.0\Swashbuckle.AspNetCore.Swagger.dll
 C:\Users\Augusto\Documents\TrabalhoT2m\Sistema de Gerenciamento de Consultas Médicas\Sistema de Gerenciamento de Consultas Médicas\bin\Debug\net9.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 C:\Users\Augusto\Documents\TrabalhoT2m\Sistema de Gerenciamento de Consultas Médicas\Sistema de Gerenciamento de Consultas Médicas\bin\Debug\net9.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\Augusto\Documents\TrabalhoT2m\Sistema de Gerenciamento de Consultas Médicas\Sistema de Gerenciamento de Consultas Médicas\bin\Debug\net9.0\RabbitMQ.Client.dll

@@ -3,24 +3,24 @@
   "WorkspaceRootPath": "C:\\Users\\Augusto\\Documents\\TrabalhoT2m\\Sistema de Gerenciamento de Consultas M\u00E9dicas\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{DCC68A47-DCD1-4236-96B1-89E6A66C0E16}|SistemaDeGerenciamentoDeConsultasMedicas.Tests\\SistemaDeGerenciamentoDeConsultasMedicas.Tests.csproj|c:\\users\\augusto\\documents\\trabalhot2m\\sistema de gerenciamento de consultas m\u00E9dicas\\sistemadegerenciamentodeconsultasmedicas.tests\\tests\\consulttests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DCC68A47-DCD1-4236-96B1-89E6A66C0E16}|SistemaDeGerenciamentoDeConsultasMedicas.Tests\\SistemaDeGerenciamentoDeConsultasMedicas.Tests.csproj|solutionrelative:sistemadegerenciamentodeconsultasmedicas.tests\\tests\\consulttests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{DCC68A47-DCD1-4236-96B1-89E6A66C0E16}|SistemaDeGerenciamentoDeConsultasMedicas.Tests\\SistemaDeGerenciamentoDeConsultasMedicas.Tests.csproj|c:\\users\\augusto\\documents\\trabalhot2m\\sistema de gerenciamento de consultas m\u00E9dicas\\sistemadegerenciamentodeconsultasmedicas.tests\\tests\\patienttest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DCC68A47-DCD1-4236-96B1-89E6A66C0E16}|SistemaDeGerenciamentoDeConsultasMedicas.Tests\\SistemaDeGerenciamentoDeConsultasMedicas.Tests.csproj|solutionrelative:sistemadegerenciamentodeconsultasmedicas.tests\\tests\\patienttest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{48465C81-CC4F-4443-8F67-2211165F295C}|Sistema de Gerenciamento de Consultas M\u00E9dicas\\Sistema de Gerenciamento de Consultas M\u00E9dicas.csproj|c:\\users\\augusto\\documents\\trabalhot2m\\sistema de gerenciamento de consultas m\u00E9dicas\\sistema de gerenciamento de consultas m\u00E9dicas\\infrastructure\\patientrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{48465C81-CC4F-4443-8F67-2211165F295C}|Sistema de Gerenciamento de Consultas M\u00E9dicas\\Sistema de Gerenciamento de Consultas M\u00E9dicas.csproj|solutionrelative:sistema de gerenciamento de consultas m\u00E9dicas\\infrastructure\\patientrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{48465C81-CC4F-4443-8F67-2211165F295C}|Sistema de Gerenciamento de Consultas M\u00E9dicas\\Sistema de Gerenciamento de Consultas M\u00E9dicas.csproj|c:\\users\\augusto\\documents\\trabalhot2m\\sistema de gerenciamento de consultas m\u00E9dicas\\sistema de gerenciamento de consultas m\u00E9dicas\\application\\serviceapp\\patientservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{48465C81-CC4F-4443-8F67-2211165F295C}|Sistema de Gerenciamento de Consultas M\u00E9dicas\\Sistema de Gerenciamento de Consultas M\u00E9dicas.csproj|solutionrelative:sistema de gerenciamento de consultas m\u00E9dicas\\application\\serviceapp\\patientservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{48465C81-CC4F-4443-8F67-2211165F295C}|Sistema de Gerenciamento de Consultas M\u00E9dicas\\Sistema de Gerenciamento de Consultas M\u00E9dicas.csproj|c:\\users\\augusto\\documents\\trabalhot2m\\sistema de gerenciamento de consultas m\u00E9dicas\\sistema de gerenciamento de consultas m\u00E9dicas\\controllers\\patientcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{48465C81-CC4F-4443-8F67-2211165F295C}|Sistema de Gerenciamento de Consultas M\u00E9dicas\\Sistema de Gerenciamento de Consultas M\u00E9dicas.csproj|solutionrelative:sistema de gerenciamento de consultas m\u00E9dicas\\controllers\\patientcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{DCC68A47-DCD1-4236-96B1-89E6A66C0E16}|SistemaDeGerenciamentoDeConsultasMedicas.Tests\\SistemaDeGerenciamentoDeConsultasMedicas.Tests.csproj|c:\\users\\augusto\\documents\\trabalhot2m\\sistema de gerenciamento de consultas m\u00E9dicas\\sistemadegerenciamentodeconsultasmedicas.tests\\unittest1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{DCC68A47-DCD1-4236-96B1-89E6A66C0E16}|SistemaDeGerenciamentoDeConsultasMedicas.Tests\\SistemaDeGerenciamentoDeConsultasMedicas.Tests.csproj|solutionrelative:sistemadegerenciamentodeconsultasmedicas.tests\\unittest1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{48465C81-CC4F-4443-8F67-2211165F295C}|Sistema de Gerenciamento de Consultas M\u00E9dicas\\Sistema de Gerenciamento de Consultas M\u00E9dicas.csproj|c:\\users\\augusto\\documents\\trabalhot2m\\sistema de gerenciamento de consultas m\u00E9dicas\\sistema de gerenciamento de consultas m\u00E9dicas\\controllers\\consultcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{48465C81-CC4F-4443-8F67-2211165F295C}|Sistema de Gerenciamento de Consultas M\u00E9dicas\\Sistema de Gerenciamento de Consultas M\u00E9dicas.csproj|solutionrelative:sistema de gerenciamento de consultas m\u00E9dicas\\controllers\\consultcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{48465C81-CC4F-4443-8F67-2211165F295C}|Sistema de Gerenciamento de Consultas M\u00E9dicas\\Sistema de Gerenciamento de Consultas M\u00E9dicas.csproj|c:\\users\\augusto\\documents\\trabalhot2m\\sistema de gerenciamento de consultas m\u00E9dicas\\sistema de gerenciamento de consultas m\u00E9dicas\\infrastructure\\consultrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{48465C81-CC4F-4443-8F67-2211165F295C}|Sistema de Gerenciamento de Consultas M\u00E9dicas\\Sistema de Gerenciamento de Consultas M\u00E9dicas.csproj|solutionrelative:sistema de gerenciamento de consultas m\u00E9dicas\\infrastructure\\consultrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{48465C81-CC4F-4443-8F67-2211165F295C}|Sistema de Gerenciamento de Consultas M\u00E9dicas\\Sistema de Gerenciamento de Consultas M\u00E9dicas.csproj|c:\\users\\augusto\\documents\\trabalhot2m\\sistema de gerenciamento de consultas m\u00E9dicas\\sistema de gerenciamento de consultas m\u00E9dicas\\application\\serviceapp\\consultservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{48465C81-CC4F-4443-8F67-2211165F295C}|Sistema de Gerenciamento de Consultas M\u00E9dicas\\Sistema de Gerenciamento de Consultas M\u00E9dicas.csproj|solutionrelative:sistema de gerenciamento de consultas m\u00E9dicas\\application\\serviceapp\\consultservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,7 +30,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 249,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
@@ -42,65 +42,65 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "ConsultRepository.cs",
-              "DocumentMoniker": "C:\\Users\\Augusto\\Documents\\TrabalhoT2m\\Sistema de Gerenciamento de Consultas M\u00E9dicas\\Sistema de Gerenciamento de Consultas M\u00E9dicas\\Infrastructure\\ConsultRepository.cs",
-              "RelativeDocumentMoniker": "Sistema de Gerenciamento de Consultas M\u00E9dicas\\Infrastructure\\ConsultRepository.cs",
-              "ToolTip": "C:\\Users\\Augusto\\Documents\\TrabalhoT2m\\Sistema de Gerenciamento de Consultas M\u00E9dicas\\Sistema de Gerenciamento de Consultas M\u00E9dicas\\Infrastructure\\ConsultRepository.cs",
-              "RelativeToolTip": "Sistema de Gerenciamento de Consultas M\u00E9dicas\\Infrastructure\\ConsultRepository.cs",
-              "ViewState": "AgIAAJYAAAAAAAAAAAAmwLoAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-13T13:03:53.176Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "ConsultService.cs",
-              "DocumentMoniker": "C:\\Users\\Augusto\\Documents\\TrabalhoT2m\\Sistema de Gerenciamento de Consultas M\u00E9dicas\\Sistema de Gerenciamento de Consultas M\u00E9dicas\\Application\\ServiceApp\\ConsultService.cs",
-              "RelativeDocumentMoniker": "Sistema de Gerenciamento de Consultas M\u00E9dicas\\Application\\ServiceApp\\ConsultService.cs",
-              "ToolTip": "C:\\Users\\Augusto\\Documents\\TrabalhoT2m\\Sistema de Gerenciamento de Consultas M\u00E9dicas\\Sistema de Gerenciamento de Consultas M\u00E9dicas\\Application\\ServiceApp\\ConsultService.cs",
-              "RelativeToolTip": "Sistema de Gerenciamento de Consultas M\u00E9dicas\\Application\\ServiceApp\\ConsultService.cs",
-              "ViewState": "AgIAAHMAAAAAAAAAAAAcwJQAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-13T13:03:33.718Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "ConsultController.cs",
-              "DocumentMoniker": "C:\\Users\\Augusto\\Documents\\TrabalhoT2m\\Sistema de Gerenciamento de Consultas M\u00E9dicas\\Sistema de Gerenciamento de Consultas M\u00E9dicas\\Controllers\\ConsultController.cs",
-              "RelativeDocumentMoniker": "Sistema de Gerenciamento de Consultas M\u00E9dicas\\Controllers\\ConsultController.cs",
-              "ToolTip": "C:\\Users\\Augusto\\Documents\\TrabalhoT2m\\Sistema de Gerenciamento de Consultas M\u00E9dicas\\Sistema de Gerenciamento de Consultas M\u00E9dicas\\Controllers\\ConsultController.cs",
-              "RelativeToolTip": "Sistema de Gerenciamento de Consultas M\u00E9dicas\\Controllers\\ConsultController.cs",
-              "ViewState": "AgIAAGIAAAAAAAAAAAAIwJMAAAAfAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-13T13:03:05.75Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "ConsultTests.cs",
-              "DocumentMoniker": "C:\\Users\\Augusto\\Documents\\TrabalhoT2m\\Sistema de Gerenciamento de Consultas M\u00E9dicas\\SistemaDeGerenciamentoDeConsultasMedicas.Tests\\Tests\\ConsultTests.cs",
-              "RelativeDocumentMoniker": "SistemaDeGerenciamentoDeConsultasMedicas.Tests\\Tests\\ConsultTests.cs",
-              "ToolTip": "C:\\Users\\Augusto\\Documents\\TrabalhoT2m\\Sistema de Gerenciamento de Consultas M\u00E9dicas\\SistemaDeGerenciamentoDeConsultasMedicas.Tests\\Tests\\ConsultTests.cs",
-              "RelativeToolTip": "SistemaDeGerenciamentoDeConsultasMedicas.Tests\\Tests\\ConsultTests.cs",
-              "ViewState": "AgIAAIMAAAAAAAAAAAAYwKsAAAAoAAAAAAAAAA==",
+              "Title": "PatientTest.cs",
+              "DocumentMoniker": "C:\\Users\\Augusto\\Documents\\TrabalhoT2m\\Sistema de Gerenciamento de Consultas M\u00E9dicas\\SistemaDeGerenciamentoDeConsultasMedicas.Tests\\Tests\\PatientTest.cs",
+              "RelativeDocumentMoniker": "SistemaDeGerenciamentoDeConsultasMedicas.Tests\\Tests\\PatientTest.cs",
+              "ToolTip": "C:\\Users\\Augusto\\Documents\\TrabalhoT2m\\Sistema de Gerenciamento de Consultas M\u00E9dicas\\SistemaDeGerenciamentoDeConsultasMedicas.Tests\\Tests\\PatientTest.cs",
+              "RelativeToolTip": "SistemaDeGerenciamentoDeConsultasMedicas.Tests\\Tests\\PatientTest.cs",
+              "ViewState": "AgIAAE8AAAAAAAAAAAAcwHoAAABdAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-13T12:57:28.227Z",
+              "WhenOpened": "2025-01-13T14:02:08.191Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "PatientRepository.cs",
+              "DocumentMoniker": "C:\\Users\\Augusto\\Documents\\TrabalhoT2m\\Sistema de Gerenciamento de Consultas M\u00E9dicas\\Sistema de Gerenciamento de Consultas M\u00E9dicas\\Infrastructure\\PatientRepository.cs",
+              "RelativeDocumentMoniker": "Sistema de Gerenciamento de Consultas M\u00E9dicas\\Infrastructure\\PatientRepository.cs",
+              "ToolTip": "C:\\Users\\Augusto\\Documents\\TrabalhoT2m\\Sistema de Gerenciamento de Consultas M\u00E9dicas\\Sistema de Gerenciamento de Consultas M\u00E9dicas\\Infrastructure\\PatientRepository.cs",
+              "RelativeToolTip": "Sistema de Gerenciamento de Consultas M\u00E9dicas\\Infrastructure\\PatientRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-13T14:01:16.999Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "PatientController.cs",
+              "DocumentMoniker": "C:\\Users\\Augusto\\Documents\\TrabalhoT2m\\Sistema de Gerenciamento de Consultas M\u00E9dicas\\Sistema de Gerenciamento de Consultas M\u00E9dicas\\Controllers\\PatientController.cs",
+              "RelativeDocumentMoniker": "Sistema de Gerenciamento de Consultas M\u00E9dicas\\Controllers\\PatientController.cs",
+              "ToolTip": "C:\\Users\\Augusto\\Documents\\TrabalhoT2m\\Sistema de Gerenciamento de Consultas M\u00E9dicas\\Sistema de Gerenciamento de Consultas M\u00E9dicas\\Controllers\\PatientController.cs",
+              "RelativeToolTip": "Sistema de Gerenciamento de Consultas M\u00E9dicas\\Controllers\\PatientController.cs",
+              "ViewState": "AgIAAFkAAAAAAAAAAAAIwGkAAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-13T14:00:43.668Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "PatientService.cs",
+              "DocumentMoniker": "C:\\Users\\Augusto\\Documents\\TrabalhoT2m\\Sistema de Gerenciamento de Consultas M\u00E9dicas\\Sistema de Gerenciamento de Consultas M\u00E9dicas\\Application\\ServiceApp\\PatientService.cs",
+              "RelativeDocumentMoniker": "Sistema de Gerenciamento de Consultas M\u00E9dicas\\Application\\ServiceApp\\PatientService.cs",
+              "ToolTip": "C:\\Users\\Augusto\\Documents\\TrabalhoT2m\\Sistema de Gerenciamento de Consultas M\u00E9dicas\\Sistema de Gerenciamento de Consultas M\u00E9dicas\\Application\\ServiceApp\\PatientService.cs",
+              "RelativeToolTip": "Sistema de Gerenciamento de Consultas M\u00E9dicas\\Application\\ServiceApp\\PatientService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-13T14:00:38.125Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "UnitTest1.cs",
               "DocumentMoniker": "C:\\Users\\Augusto\\Documents\\TrabalhoT2m\\Sistema de Gerenciamento de Consultas M\u00E9dicas\\SistemaDeGerenciamentoDeConsultasMedicas.Tests\\UnitTest1.cs",
               "RelativeDocumentMoniker": "SistemaDeGerenciamentoDeConsultasMedicas.Tests\\UnitTest1.cs",
               "ToolTip": "C:\\Users\\Augusto\\Documents\\TrabalhoT2m\\Sistema de Gerenciamento de Consultas M\u00E9dicas\\SistemaDeGerenciamentoDeConsultasMedicas.Tests\\UnitTest1.cs",
               "RelativeToolTip": "SistemaDeGerenciamentoDeConsultasMedicas.Tests\\UnitTest1.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-13T12:54:56.173Z",
               "EditorCaption": ""
