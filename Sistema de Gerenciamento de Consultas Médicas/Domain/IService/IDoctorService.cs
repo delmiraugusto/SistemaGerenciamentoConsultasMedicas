@@ -9,6 +9,6 @@ public interface IDoctorService
     Task<DoctorDTO> GetByEmailAsync(string email);
     Task<IsActiveDoctorDTO> GetByIdAsync(int id);
     Task<int> AddAsync(DoctorDTO doctorDTO);
-    Task UpdateAsync(int id, DoctorDTO doctorDTO);
+    Task UpdateAsync(int id, Doctor doctorDTO);
     Task CancelAsync(int id);
 }

@@ -29,6 +29,7 @@ public class DoctorService : IDoctorService
             doctor.Name,
             doctor.Email,
             doctor.Telephone,
+            doctor.Cpf,
             doctor.Crm,
             doctor.PasswordHash,
             doctor.Specialty
@@ -49,6 +50,7 @@ public class DoctorService : IDoctorService
             doctor.Name,
             doctor.Email,
             doctor.Telephone,
+            doctor.Cpf,
             doctor.Crm,
             doctor.PasswordHash,
             doctor.Specialty
@@ -71,7 +73,7 @@ public class DoctorService : IDoctorService
             doctor.Email,
             doctor.Telephone,
             doctor.Crm,
-            doctor.PasswordHash,
+            doctor.Cpf,
             doctor.Specialty,
             doctor.IsActive
         );
@@ -83,18 +85,19 @@ public class DoctorService : IDoctorService
         {
             Name = doctorDTO.Name,
             Email = doctorDTO.Email,
+            Telephone = doctorDTO.Telephone,
+            PasswordHash = doctorDTO.Password,
+            Cpf = doctorDTO.Cpf,
+            Crm = doctorDTO.Crm,
             Specialty = doctorDTO.Specialty,
             IsActive = true,
-            PasswordHash = doctorDTO.PasswordHash,
-            Telephone = doctorDTO.Telephone, 
-            Crm = doctorDTO.Crm
         };
 
         await _doctorRepository.AddAsync(doctor);
         return doctor.Id;
     }
 
-    public async Task UpdateAsync(int id, DoctorDTO doctorDTO)
+    public async Task UpdateAsync(int id, Doctor doctorDTO)
     {
         var doctor = await _doctorRepository.GetByIdAsync(id);
 
@@ -117,7 +120,12 @@ public class DoctorService : IDoctorService
         if (!string.IsNullOrEmpty(doctorDTO.Email)) doctor.Email = doctorDTO.Email;
         if (!string.IsNullOrEmpty(doctorDTO.Telephone)) doctor.Telephone = doctorDTO.Telephone;
         if (!string.IsNullOrEmpty(doctorDTO.Specialty)) doctor.Specialty = doctorDTO.Specialty;
-        if (!string.IsNullOrEmpty(doctorDTO.PasswordHash)) doctor.PasswordHash = doctorDTO.PasswordHash;
+        if (!string.IsNullOrEmpty(doctorDTO.Cpf)) doctor.Cpf = doctorDTO.Cpf;
+
+        if (doctorDTO.IsActive != doctor.IsActive)
+        {
+            doctor.IsActive = doctorDTO.IsActive;
+        }
 
         await _doctorRepository.UpdateAsync(doctor);
     }

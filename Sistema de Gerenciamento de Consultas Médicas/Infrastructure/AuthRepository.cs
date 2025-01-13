@@ -22,20 +22,20 @@ public class AuthRepository : IAuthRepository
 
     public async Task<UserViewDTO?> FindByEmail(string email)
     {
-        var query = @"select id, passwordhash from user_view UV where UV.email = @Email";
+        var query = @"select id, email, passwordhash, role, name from user_view UV where UV.email = @Email";
 
         try
         {
             using (var connection = _dbconnection.GetConnection())
             {
 
-                var test = await connection.QueryFirstOrDefaultAsync<UserViewDTO?>(query, new { Email = email });
+                var test = await connection.QueryFirstOrDefaultAsync<UserViewDTO>(query, new { Email = email });
                 return test;
             }
         }
         catch (Exception ex)
         {
-            throw new ApplicationException($"Erro ao Buscar user por id - {ex.Message}");
+            throw new ApplicationException($"Erro ao Buscar user por email - {ex.Message}", ex);
         }
 
     }

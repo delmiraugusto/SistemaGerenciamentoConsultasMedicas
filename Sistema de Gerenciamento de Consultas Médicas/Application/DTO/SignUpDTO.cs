@@ -8,7 +8,8 @@ public record class SignUpDTO(
     string email, 
     string password,
     string telephone,
+    string cpf,
     string? crm,
-    string? speciality,
+    string? specialty,
     string? age);
 

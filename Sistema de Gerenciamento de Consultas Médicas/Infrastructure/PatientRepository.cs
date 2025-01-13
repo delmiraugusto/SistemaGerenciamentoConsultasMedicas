@@ -49,9 +49,16 @@ namespace Sistema_de_Gerenciamento_de_Consultas_Médicas.Domain.Infrastructure
 
         public async Task<Patient> AddAsync(Patient patient)
         {
-            var query = "INSERT INTO Patient (Name, Email, PasswordHash, Telephone, Age) " +
-                        "VALUES (@Name, @Email, @PasswordHash, @Telephone, @Age)" +
+            if (patient == null)
+            {
+                throw new ArgumentNullException(nameof(patient), "O paciente não pode ser nulo.");
+            }
+
+            var query = "INSERT INTO Patient (Name, Email, PasswordHash, Telephone, Age, Cpf) " +
+                        "VALUES (@Name, @Email, @PasswordHash, @Telephone, @Age, @Cpf)" +
                         "RETURNING Id";
+
+
             using (var connection = _dbConnection.GetConnection())
             {
                 try
@@ -59,6 +66,10 @@ namespace Sistema_de_Gerenciamento_de_Consultas_Médicas.Domain.Infrastructure
                     var newPatientId = await connection.ExecuteScalarAsync<int>(query, patient);
 
                     patient.Id = newPatientId;
+                    if (newPatientId <= 0)
+                    {
+                        throw new ApplicationException("Erro ao gerar o ID do paciente.");
+                    }
                     return patient;
                 }
                 catch (Exception ex)

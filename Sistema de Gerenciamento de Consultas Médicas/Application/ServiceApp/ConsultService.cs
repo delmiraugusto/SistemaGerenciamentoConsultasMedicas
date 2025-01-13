@@ -89,6 +89,7 @@ public class ConsultService : IConsultService
 
     public async Task<int> AddAsync(Consult consult)
     {
+        Console.WriteLine($"ID do paciente: {consult.IdPatient}");
 
         if (string.IsNullOrEmpty(consult.Description))
             throw new ArgumentException("A descrição é obrigatória.");

@@ -126,7 +126,7 @@ public class ConsultController : ControllerBase
         try
         {
             await _consultService.AddAsync(consult);
-            return CreatedAtAction(nameof(GetById), new { id = consult.Id }, consult);
+            return CreatedAtAction(nameof(GetById), new { consult.Id }, consult);
         }
         catch (Exception ex)
         {

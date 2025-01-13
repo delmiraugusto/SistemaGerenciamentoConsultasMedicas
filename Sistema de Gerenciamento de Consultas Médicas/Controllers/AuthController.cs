@@ -36,7 +36,7 @@ public class AuthController : ControllerBase
         }
         catch (Exception ex)
         {
-            return StatusCode(500, $"Erro ao adicionar a consulta: {ex.Message}");
+            return StatusCode(500, $"Erro ao logar: {ex.Message}");
         }
     }
 
@@ -55,7 +55,7 @@ public class AuthController : ControllerBase
         }
         catch (Exception ex)
         {
-            return StatusCode(500, $"Erro ao adicionar a consulta: {ex.Message}");
+            return StatusCode(500, $"Erro ao cadastrar: {ex.Message}");
         }
     }
 

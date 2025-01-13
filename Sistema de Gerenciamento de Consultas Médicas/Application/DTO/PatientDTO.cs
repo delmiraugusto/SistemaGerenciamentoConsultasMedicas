@@ -3,7 +3,8 @@
 public record class PatientDTO(
     int? Id, 
     string? Name, 
-    string? Email, 
-    string? PasswordHash, 
+    string? Email,
+    string? PasswordHash,
+    string? Cpf,
     string? Age, 
     string? Telephone);

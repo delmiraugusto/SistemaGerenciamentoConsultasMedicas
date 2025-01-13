@@ -32,6 +32,7 @@ public class PatientService : IPatientService
                 patient.Name,
                 patient.Email,
                 patient.PasswordHash,
+                patient.Cpf,
                 patient.Age,
                 patient.Telephone
             )).ToList();
@@ -51,6 +52,7 @@ public class PatientService : IPatientService
             patient.Name,
             patient.Email,
             patient.PasswordHash,
+            patient.Cpf,
             patient.Age,
             patient.Telephone
             );
@@ -70,6 +72,7 @@ public class PatientService : IPatientService
             patient.Name,
             patient.Email,
             patient.PasswordHash,
+            patient.Cpf,
             patient.Age,
             patient.Telephone
             );
@@ -82,6 +85,7 @@ public class PatientService : IPatientService
             Name = patientDTO.Name,
             Email = patientDTO.Email,
             PasswordHash = patientDTO.PasswordHash,
+            Cpf = patientDTO.Cpf,
             Age = patientDTO.Age,
             Telephone = patientDTO.Telephone
         };
@@ -106,7 +110,7 @@ public class PatientService : IPatientService
 
         if (!string.IsNullOrEmpty(patientDTO.Email)) patient.Email = patientDTO.Email;
         if (!string.IsNullOrEmpty(patientDTO.Telephone)) patient.Telephone = patientDTO.Telephone;
-        if (!string.IsNullOrEmpty(patientDTO.PasswordHash)) patient.PasswordHash = patientDTO.PasswordHash;
+        if (!string.IsNullOrEmpty(patientDTO.Cpf)) patient.Cpf = patientDTO.Cpf;
         if (!string.IsNullOrEmpty(patientDTO.Name)) patient.Name = patientDTO.Name;
 
         await _patientRepository.UpdateAsync(patient);

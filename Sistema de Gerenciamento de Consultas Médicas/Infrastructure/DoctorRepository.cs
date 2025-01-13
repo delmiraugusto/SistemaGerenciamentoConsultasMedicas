@@ -61,18 +61,24 @@ namespace Sistema_de_Gerenciamento_de_Consultas_Médicas.Domain.Infrastructure
 
         public async Task<Doctor> AddAsync(Doctor doctor)
         {
-            var query = @"
-                INSERT INTO Doctor (Name, Email, PasswordHash, Telephone, Crm, Specialty, IsActive) 
-                    VALUES (@Name, @Email, @PasswordHash, @Telephone, @Crm, @Specialty, @IsActive)
-                RETURNING Id;";
+            var query = 
+                "INSERT INTO Doctor (Name, Email, PasswordHash, Telephone, Crm, Specialty, Cpf)" +
+                    "VALUES (@Name, @Email, @PasswordHash, @Telephone, @Crm, @Specialty, @Cpf)" + 
+                "RETURNING Id";
 
             using (var connection = _dbConnection.GetConnection())
             {
                 try
                 {
+                    Console.WriteLine($"Nome: {doctor.Name}, Especialidade: {doctor.Specialty}");
+
                     var newDoctorId = await connection.ExecuteScalarAsync<int>(query, doctor);
 
                     doctor.Id = newDoctorId;
+                    if (newDoctorId <= 0)
+                    {
+                        throw new ApplicationException("Erro ao gerar o ID do medico.");
+                    }
                     return doctor;
                 }
                 catch (Exception ex)

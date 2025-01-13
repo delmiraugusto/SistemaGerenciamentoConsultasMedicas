@@ -7,6 +7,7 @@ public record class DoctorDTO(
     string? Name, 
     string? Email, 
     string? Telephone, 
-    string? Crm, 
-    string? PasswordHash,
+    string? Cpf,
+    string? Crm,
+    string? Password,
     string? Specialty);

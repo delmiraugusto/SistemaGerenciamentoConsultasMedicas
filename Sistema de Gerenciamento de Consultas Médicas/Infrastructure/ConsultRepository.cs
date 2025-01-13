@@ -119,7 +119,13 @@ public class ConsultRepository : IConsultRepository
         {
             try
             {
-                var newConsultId = await connection.ExecuteScalarAsync<int>(query, consult);
+                var newConsultId = await connection.ExecuteScalarAsync<int>(query, new
+                {
+                    consult.Description,
+                    consult.DateTimeQuery,
+                    consult.IdPatient,
+                    consult.IdDoctor
+                });
 
                 consult.Id = newConsultId;
                 return consult;

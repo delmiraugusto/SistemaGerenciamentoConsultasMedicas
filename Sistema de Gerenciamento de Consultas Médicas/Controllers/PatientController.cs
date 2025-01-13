@@ -18,7 +18,7 @@ public class PatientController : ControllerBase
     }
 
     [HttpGet]
-    public async Task<ActionResult<IEnumerable<DoctorDTO>>> GetAllAsync()
+    public async Task<ActionResult<IEnumerable<PatientDTO>>> GetAllAsync()
     {
         try
         {
@@ -49,8 +49,8 @@ public class PatientController : ControllerBase
         }
     }
 
-    [HttpGet("email/{email}")]
-    public async Task<ActionResult<DoctorDTO>> GetByEmail(string email)
+    [HttpGet("emailPatient/{email}")]
+    public async Task<ActionResult<PatientDTO>> GetByEmail(string email)
     {
         try
         {
@@ -67,25 +67,25 @@ public class PatientController : ControllerBase
         }
     }
 
-    [HttpPost]
-    public async Task<ActionResult> Add([FromBody] PatientDTO patient)
-    {
-        if (!ModelState.IsValid)
-        {
-            return BadRequest(ModelState);
-        }
+    //[HttpPost]
+    //public async Task<ActionResult> Add([FromBody] PatientDTO patient)
+    //{
+    //    if (!ModelState.IsValid)
+    //    {
+    //        return BadRequest(ModelState);
+    //    }
 
-        try
-        {
-            var id = await _patientService.AddAsync(patient);
+    //    try
+    //    {
+    //        var id = await _patientService.AddAsync(patient);
 
-            return CreatedAtAction(nameof(GetById), new { id }, patient);
-        }
-        catch (Exception ex)
-        {
-            return StatusCode(500, $"Erro ao adicionar o Paciente: {ex.Message}");
-        }
-    }
+    //        return CreatedAtAction(nameof(GetById), new { id }, patient);
+    //    }
+    //    catch (Exception ex)
+    //    {
+    //        return StatusCode(500, $"Erro ao adicionar o Paciente: {ex.Message}");
+    //    }
+    //}
 
     [HttpPut("{id}")]
     public async Task<ActionResult> Update(int id, [FromBody] PatientDTO patientDTO)

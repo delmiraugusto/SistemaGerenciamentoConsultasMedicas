@@ -184,22 +184,6 @@
   },
   {
     "ContainingType": "Sistema_de_Gerenciamento_de_Consultas_M\u00E9dicas.Controllers.DoctorController",
-    "Method": "Add",
-    "RelativePath": "api/Doctor",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "doctor",
-        "Type": "Sistema_de_Gerenciamento_de_Consultas_M\u00E9dicas.Application.DTO.DoctorDTO",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "Sistema_de_Gerenciamento_de_Consultas_M\u00E9dicas.Controllers.DoctorController",
     "Method": "GetById",
     "RelativePath": "api/Doctor/{id}",
     "HttpMethod": "GET",
@@ -239,7 +223,7 @@
       },
       {
         "Name": "doctorDTO",
-        "Type": "Sistema_de_Gerenciamento_de_Consultas_M\u00E9dicas.Application.DTO.DoctorDTO",
+        "Type": "Sistema_de_Gerenciamento_de_Consultas_M\u00E9dicas.Domain.Entities.Doctor",
         "IsRequired": true
       }
     ],
@@ -297,7 +281,7 @@
     "Parameters": [],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[Sistema_de_Gerenciamento_de_Consultas_M\u00E9dicas.Application.DTO.DoctorDTO, Sistema de Gerenciamento de Consultas M\u00E9dicas, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[Sistema_de_Gerenciamento_de_Consultas_M\u00E9dicas.Application.DTO.PatientDTO, Sistema de Gerenciamento de Consultas M\u00E9dicas, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -306,22 +290,6 @@
         "StatusCode": 200
       }
     ]
-  },
-  {
-    "ContainingType": "Sistema_de_Gerenciamento_de_Consultas_M\u00E9dicas.Controllers.PatientController",
-    "Method": "Add",
-    "RelativePath": "api/Patient",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "patient",
-        "Type": "Sistema_de_Gerenciamento_de_Consultas_M\u00E9dicas.Application.DTO.PatientDTO",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
   },
   {
     "ContainingType": "Sistema_de_Gerenciamento_de_Consultas_M\u00E9dicas.Controllers.PatientController",
@@ -389,7 +357,7 @@
   {
     "ContainingType": "Sistema_de_Gerenciamento_de_Consultas_M\u00E9dicas.Controllers.PatientController",
     "Method": "GetByEmail",
-    "RelativePath": "api/Patient/email/{email}",
+    "RelativePath": "api/Patient/emailPatient/{email}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -402,7 +370,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "Sistema_de_Gerenciamento_de_Consultas_M\u00E9dicas.Application.DTO.DoctorDTO",
+        "Type": "Sistema_de_Gerenciamento_de_Consultas_M\u00E9dicas.Application.DTO.PatientDTO",
         "MediaTypes": [
           "text/plain",
           "application/json",

@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Sistema_de_Gerenciamento_de_Consultas_Médicas.Application.DTO;
+using Sistema_de_Gerenciamento_de_Consultas_Médicas.Domain.Entities;
 using Sistema_de_Gerenciamento_de_Consultas_Médicas.Domain.IService;
 
 namespace Sistema_de_Gerenciamento_de_Consultas_Médicas.Controllers;
@@ -67,27 +68,27 @@ public class DoctorController : ControllerBase
         }
     }
 
-    [HttpPost]
-    public async Task<ActionResult> Add([FromBody] DoctorDTO doctor)
-    {
-        if (!ModelState.IsValid)
-        {
-            return BadRequest(ModelState);
-        }
-        try
-        {
-            var id = await _doctorService.AddAsync(doctor);
-            return CreatedAtAction(nameof(GetById), new { id }, doctor);
-        }
-        catch (Exception ex)
-        {
-            return StatusCode(500, $"Erro ao adicionar o médico: {ex.Message}");
-        }
-    }
+    //[HttpPost]
+    //public async Task<ActionResult> Add([FromBody] DoctorDTO doctor)
+    //{
+    //    if (!ModelState.IsValid)
+    //    {
+    //        return BadRequest(ModelState);
+    //    }
+    //    try
+    //    {
+    //        var id = await _doctorService.AddAsync(doctor);
+    //        return CreatedAtAction(nameof(GetById), new { id }, doctor);
+    //    }
+    //    catch (Exception ex)
+    //    {
+    //        return StatusCode(500, $"Erro ao adicionar o médico: {ex.Message}");
+    //    }
+    //}
 
 
     [HttpPut("{id}")]
-    public async Task<ActionResult> Update(int id, [FromBody] DoctorDTO doctorDTO)
+    public async Task<ActionResult> Update(int id, [FromBody] Doctor doctorDTO)
     {
         if (id != doctorDTO.Id)
         {

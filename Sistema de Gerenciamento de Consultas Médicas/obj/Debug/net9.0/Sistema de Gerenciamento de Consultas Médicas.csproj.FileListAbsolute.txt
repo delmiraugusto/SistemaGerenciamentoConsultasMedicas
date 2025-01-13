@@ -77,3 +77,9 @@ C:\Users\Augusto\Documents\TrabalhoT2m\Sistema de Gerenciamento de Consultas Mé
 C:\Users\Augusto\Documents\TrabalhoT2m\Sistema de Gerenciamento de Consultas Médicas\Sistema de Gerenciamento de Consultas Médicas\bin\Debug\net9.0\Microsoft.IdentityModel.Logging.dll
 C:\Users\Augusto\Documents\TrabalhoT2m\Sistema de Gerenciamento de Consultas Médicas\Sistema de Gerenciamento de Consultas Médicas\bin\Debug\net9.0\Microsoft.IdentityModel.Tokens.dll
 C:\Users\Augusto\Documents\TrabalhoT2m\Sistema de Gerenciamento de Consultas Médicas\Sistema de Gerenciamento de Consultas Médicas\bin\Debug\net9.0\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\Augusto\Documents\TrabalhoT2m\Sistema de Gerenciamento de Consultas Médicas\Sistema de Gerenciamento de Consultas Médicas\bin\Debug\net9.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\Augusto\Documents\TrabalhoT2m\Sistema de Gerenciamento de Consultas Médicas\Sistema de Gerenciamento de Consultas Médicas\bin\Debug\net9.0\Microsoft.IdentityModel.Protocols.dll
+C:\Users\Augusto\Documents\TrabalhoT2m\Sistema de Gerenciamento de Consultas Médicas\Sistema de Gerenciamento de Consultas Médicas\bin\Debug\net9.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\Augusto\Documents\TrabalhoT2m\Sistema de Gerenciamento de Consultas Médicas\Sistema de Gerenciamento de Consultas Médicas\bin\Debug\net9.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\Augusto\Documents\TrabalhoT2m\Sistema de Gerenciamento de Consultas Médicas\Sistema de Gerenciamento de Consultas Médicas\bin\Debug\net9.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\Augusto\Documents\TrabalhoT2m\Sistema de Gerenciamento de Consultas Médicas\Sistema de Gerenciamento de Consultas Médicas\bin\Debug\net9.0\Swashbuckle.AspNetCore.SwaggerUI.dll
