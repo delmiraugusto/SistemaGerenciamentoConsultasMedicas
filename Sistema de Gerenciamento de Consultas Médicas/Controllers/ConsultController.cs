@@ -17,6 +17,7 @@ public class ConsultController : ControllerBase
     }
 
     [HttpGet("patientConsults/{pacienteId}")]
+    [Authorize]
     public async Task<ActionResult<IEnumerable<ConsultDTO>>> GetConsultByPatient(int pacienteId)
     {
         try
@@ -51,6 +52,7 @@ public class ConsultController : ControllerBase
 
 
     [HttpGet("doctorConsults/{doctorId}")]
+    [Authorize]
     public async Task<ActionResult<IEnumerable<ConsultDTO>>> GetConsultByDoctor(int doctorId)
     {
         try
@@ -84,6 +86,7 @@ public class ConsultController : ControllerBase
     }
 
     [HttpGet("{id}")]
+    [Authorize]
     public async Task<ActionResult<IEnumerable<ConsultDTO>>> GetById(int id)
     {
         try
@@ -117,6 +120,7 @@ public class ConsultController : ControllerBase
     }
 
     [HttpPost]
+    [Authorize]
     public async Task<ActionResult> Add([FromBody] Consult consult)
     {
         if (!ModelState.IsValid)
@@ -136,6 +140,7 @@ public class ConsultController : ControllerBase
 
 
     [HttpPut("{id}")]
+    [Authorize]
     public async Task<ActionResult> Update(int id, [FromBody] UpdateConsultDTO consult)
     {
         if (id != consult.Id)
@@ -160,6 +165,7 @@ public class ConsultController : ControllerBase
     }
 
     [HttpDelete("{id}")]
+    [Authorize]
     public async Task<ActionResult> Delete(int id)
     {
         try

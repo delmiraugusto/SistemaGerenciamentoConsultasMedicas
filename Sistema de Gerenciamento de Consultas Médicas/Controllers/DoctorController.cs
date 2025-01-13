@@ -19,6 +19,7 @@ public class DoctorController : ControllerBase
     }
 
     [HttpGet]
+    [Authorize]
     public async Task<ActionResult<IEnumerable<DoctorDTO>>> GetAllAsync()
     {
         try
@@ -33,6 +34,7 @@ public class DoctorController : ControllerBase
     }
 
     [HttpGet("{id}")]
+    [Authorize]
     public async Task<ActionResult<IsActiveDoctorDTO>> GetById(int id)
     {
         try
@@ -51,6 +53,7 @@ public class DoctorController : ControllerBase
     }
 
     [HttpGet("email/{email}")]
+    [Authorize]
     public async Task<ActionResult<DoctorDTO>> GetByEmail(string email)
     {
         try
@@ -88,6 +91,7 @@ public class DoctorController : ControllerBase
 
 
     [HttpPut("{id}")]
+    [Authorize]
     public async Task<ActionResult> Update(int id, [FromBody] Doctor doctorDTO)
     {
         if (id != doctorDTO.Id)
@@ -112,6 +116,7 @@ public class DoctorController : ControllerBase
     }
 
     [HttpDelete("{id}")]
+    [Authorize]
     public async Task<ActionResult> Cancel(int id)
     {
         try
