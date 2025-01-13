@@ -125,3 +125,4 @@ C:\Users\Augusto\Documents\TrabalhoT2m\Sistema de Gerenciamento de Consultas Mé
 C:\Users\Augusto\Documents\TrabalhoT2m\Sistema de Gerenciamento de Consultas Médicas\SistemaDeGerenciamentoDeConsultasMedicas.Tests\obj\Debug\net9.0\SistemaDeGerenciamentoDeConsultasMedicas.Tests.genruntimeconfig.cache
 C:\Users\Augusto\Documents\TrabalhoT2m\Sistema de Gerenciamento de Consultas Médicas\SistemaDeGerenciamentoDeConsultasMedicas.Tests\obj\Debug\net9.0\ref\SistemaDeGerenciamentoDeConsultasMedicas.Tests.dll
 C:\Users\Augusto\Documents\TrabalhoT2m\Sistema de Gerenciamento de Consultas Médicas\SistemaDeGerenciamentoDeConsultasMedicas.Tests\bin\Debug\net9.0\RabbitMQ.Client.dll
+C:\Users\Augusto\Documents\TrabalhoT2m\Sistema de Gerenciamento de Consultas Médicas\SistemaDeGerenciamentoDeConsultasMedicas.Tests\bin\Debug\net9.0\BCrypt.Net-Next.dll

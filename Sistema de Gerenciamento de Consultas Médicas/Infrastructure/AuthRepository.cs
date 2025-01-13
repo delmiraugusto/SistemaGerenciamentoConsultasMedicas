@@ -12,8 +12,6 @@ public class AuthRepository : IAuthRepository
 {
 
     private readonly PostgresConnection _dbconnection;
-    private readonly string HASH_SALT_KEY = "SaltFixo1234567890";
-
 
     public AuthRepository(PostgresConnection dbconnection)
     {
@@ -22,50 +20,39 @@ public class AuthRepository : IAuthRepository
 
     public async Task<UserViewDTO?> FindByEmail(string email)
     {
-        var query = @"select id, email, passwordhash, role, name from user_view UV where UV.email = @Email";
+        var query = @"select id, email, passwordhash, type, name from user_view UV where UV.email = @Email";
 
         try
         {
             using (var connection = _dbconnection.GetConnection())
             {
+                var result = await connection.QueryFirstOrDefaultAsync(query, new { Email = email });
 
-                var test = await connection.QueryFirstOrDefaultAsync<UserViewDTO>(query, new { Email = email });
-                return test;
+                if (result == null)
+                    return null;
+
+                return new UserViewDTO(
+                    result.id,
+                    result.passwordhash,
+                    result.name,
+                    result.type
+                    );
             }
         }
         catch (Exception ex)
         {
             throw new ApplicationException($"Erro ao Buscar user por email - {ex.Message}", ex);
         }
-
     }
 
-        public string CreatePassword(string password)
-        {
-            var salt = Encoding.UTF8.GetBytes(HASH_SALT_KEY);
-            using (var hmac = new HMACSHA512(salt))
-            {
-                var passwordBytes = Encoding.UTF8.GetBytes(password);
-                var hash = hmac.ComputeHash(passwordBytes);
+    public string CreatePassword(string password)
+    {
+        var hashedPassword = BCrypt.Net.BCrypt.HashPassword(password);
+        return hashedPassword;
+    }
 
-                return Convert.ToBase64String(hash);
-            }
-        }
-
-        public bool VerifyPassword(string password, string storedHash)
-        {
-            var hash = Convert.FromBase64String(storedHash);
-            var salt = Encoding.UTF8.GetBytes(HASH_SALT_KEY);
-
-            using (var hmac = new HMACSHA512(salt))
-            {
-                var passwordBytes = Encoding.UTF8.GetBytes(password);
-                var computedHash = hmac.ComputeHash(passwordBytes);
-
-                return computedHash.SequenceEqual(hash);
-            }
-        }
-
-
-
+    public bool VerifyPassword(string password, string storedHash)
+    {
+        return BCrypt.Net.BCrypt.Verify(password, storedHash);
+    }
 }

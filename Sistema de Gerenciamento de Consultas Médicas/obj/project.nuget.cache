@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "ezbpZKpmINw=",
+  "dgSpecHash": "1oeeNIdR/y8=",
   "success": true,
   "projectFilePath": "C:\\Users\\Augusto\\Documents\\TrabalhoT2m\\Sistema de Gerenciamento de Consultas Médicas\\Sistema de Gerenciamento de Consultas Médicas\\Sistema de Gerenciamento de Consultas Médicas.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Augusto\\.nuget\\packages\\bcrypt.net-next\\4.0.3\\bcrypt.net-next.4.0.3.nupkg.sha512",
     "C:\\Users\\Augusto\\.nuget\\packages\\dapper\\2.1.35\\dapper.2.1.35.nupkg.sha512",
     "C:\\Users\\Augusto\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\9.0.0\\microsoft.aspnetcore.authentication.jwtbearer.9.0.0.nupkg.sha512",
     "C:\\Users\\Augusto\\.nuget\\packages\\microsoft.aspnetcore.openapi\\9.0.0\\microsoft.aspnetcore.openapi.9.0.0.nupkg.sha512",

@@ -10,6 +10,7 @@ using System.Text.Json.Serialization;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
+using Sistema_de_Gerenciamento_de_Consultas_Médicas.Domain.Entities;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -27,10 +28,21 @@ builder.Services.AddScoped<IConsultRepository, ConsultRepository>();
 builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddScoped<IAuthRepository, AuthRepository>();
 
+builder.Services.Configure<JwtSettings>(builder.Configuration.GetSection("Jwt"));
+builder.Services.AddScoped<IAuthService, AuthService>();
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+var jwtSecret = builder.Configuration["Jwt:Secret"];
+var jwtExpiration = builder.Configuration["Jwt:ExpirationMinutes"];
+Console.WriteLine($"Chave secreta do JWT: {jwtSecret}"); 
+
+if (string.IsNullOrEmpty(jwtSecret))
+{
+    throw new InvalidOperationException("A chave secreta do JWT não foi configurada corretamente.");
+}
 
 builder.Services.AddAuthentication(options =>
 {
@@ -44,7 +56,7 @@ builder.Services.AddAuthentication(options =>
         ValidateAudience = false,
         ValidateLifetime = true,
         ValidateIssuerSigningKey = true,
-        IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(builder.Configuration["Jwt:Secret"])),
+        IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(jwtSecret))
     };
 });
 
@@ -55,15 +67,7 @@ builder.Services.AddScoped<PostgresConnection>(provider =>
     return new PostgresConnection(connectionString);
 });
 
-builder.Services.AddScoped<IAuthService>(provider =>
-{
-    var configuration = provider.GetRequiredService<IConfiguration>();
-    return new AuthService(
-        provider.GetRequiredService<IAuthRepository>(),
-        provider.GetRequiredService<IDoctorService>(),
-        provider.GetRequiredService<IPatientService>()
-    );
-});
+
 
 
 builder.Services.AddControllers()
