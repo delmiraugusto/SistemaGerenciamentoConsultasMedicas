@@ -81,7 +81,7 @@ namespace Sistema_de_Gerenciamento_de_Consultas_Médicas.Domain.Infrastructure
 
         public async Task UpdateAsync(Patient patient)
         {
-            var query = "UPDATE Patient SET Telephone = @Telephone, Age = @Age, Name = @Name WHERE id = @Id";
+            var query = "UPDATE Patient SET Telephone = @Telephone, Name = @Name WHERE id = @Id";
             using (var connection = _dbConnection.GetConnection())
             {
                 await connection.ExecuteAsync(query, patient);

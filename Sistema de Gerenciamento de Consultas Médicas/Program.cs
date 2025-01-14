@@ -60,14 +60,24 @@ builder.Services.AddAuthentication(options =>
     };
 });
 
+
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowSpecificOrigin", policy =>
+    {
+        policy.WithOrigins("http://localhost:5173") 
+              .AllowAnyMethod() 
+              .AllowAnyHeader()
+              .AllowCredentials(); 
+    });
+});
+
 var connectionString = builder.Configuration.GetConnectionString("PostgreSQLConnection");
 
 builder.Services.AddScoped<PostgresConnection>(provider =>
 {
     return new PostgresConnection(connectionString);
 });
-
-
 
 
 builder.Services.AddControllers()
@@ -88,6 +98,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.UseCors("AllowSpecificOrigin");
 
 app.UseHttpsRedirection();
 

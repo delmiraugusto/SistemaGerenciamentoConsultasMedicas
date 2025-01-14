@@ -93,10 +93,7 @@ namespace Sistema_de_Gerenciamento_de_Consultas_Médicas.Domain.Infrastructure
             var query = @"
             UPDATE Doctor 
             SET Name = @Name, 
-                Email = @Email, 
-                PasswordHash = @PasswordHash, 
                 Telephone = @Telephone, 
-                Crm = @Crm, 
                 Specialty = @Specialty, 
                 IsActive = @IsActive 
             WHERE Id = @Id";
@@ -108,10 +105,7 @@ namespace Sistema_de_Gerenciamento_de_Consultas_Médicas.Domain.Infrastructure
                     var affectedRows = await connection.ExecuteAsync(query, new
                     {
                         doctor.Name,
-                        doctor.Email,
-                        doctor.PasswordHash,
                         doctor.Telephone,
-                        doctor.Crm,
                         doctor.Specialty,
                         doctor.IsActive,
                         doctor.Id
