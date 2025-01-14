@@ -44,7 +44,7 @@
               "RelativeDocumentMoniker": "Sistema de Gerenciamento de Consultas M\u00E9dicas\\Infrastructure\\PatientRepository.cs",
               "ToolTip": "C:\\Users\\Augusto\\Documents\\TrabalhoT2m\\Sistema de Gerenciamento de Consultas M\u00E9dicas\\Sistema de Gerenciamento de Consultas M\u00E9dicas\\Infrastructure\\PatientRepository.cs",
               "RelativeToolTip": "Sistema de Gerenciamento de Consultas M\u00E9dicas\\Infrastructure\\PatientRepository.cs",
-              "ViewState": "AgIAADEAAAAAAAAAAAA0wFMAAABDAAAAAAAAAA==",
+              "ViewState": "AgIAADIAAAAAAAAAAAAIwFMAAABhAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-13T23:03:33.9Z",
               "EditorCaption": ""
@@ -59,8 +59,7 @@
               "RelativeToolTip": "Sistema de Gerenciamento de Consultas M\u00E9dicas\\Application\\ServiceApp\\PatientService.cs",
               "ViewState": "AgIAAE0AAAAAAAAAAAAIwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-13T23:02:27.821Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-13T23:02:27.821Z"
             },
             {
               "$type": "Document",
@@ -72,8 +71,7 @@
               "RelativeToolTip": "Sistema de Gerenciamento de Consultas M\u00E9dicas\\Infrastructure\\DoctorRepository.cs",
               "ViewState": "AgIAAEwAAAAAAAAAAAAcwGsAAAAlAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-13T23:03:59.635Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-13T23:03:59.635Z"
             },
             {
               "$type": "Document",
@@ -85,8 +83,7 @@
               "RelativeToolTip": "Sistema de Gerenciamento de Consultas M\u00E9dicas\\Application\\ServiceApp\\DoctorService.cs",
               "ViewState": "AgIAAGEAAAAAAAAAAAAcwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-13T22:46:41.795Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-13T22:46:41.795Z"
             }
           ]
         }
