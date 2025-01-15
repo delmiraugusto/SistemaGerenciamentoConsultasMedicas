@@ -1,4 +1,4 @@
-Sistema de Agendamento de Consultas - C# & React VITE
+## Sistema de Agendamento de Consultas - C# & React VITE
 
 ## Sobre o Projeto
 
