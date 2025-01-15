@@ -1,5 +1,6 @@
 ﻿using System.Numerics;
 using System.Runtime.ConstrainedExecution;
+using System.Text.Json;
 using Sistema_de_Gerenciamento_de_Consultas_Médicas.Application.DTO;
 using Sistema_de_Gerenciamento_de_Consultas_Médicas.Domain.Entities;
 using Sistema_de_Gerenciamento_de_Consultas_Médicas.Domain.IRepository;
@@ -11,10 +12,12 @@ public class ConsultService : IConsultService
 {
 
     private readonly IConsultRepository _consultRepository;
+    private readonly RabbitMQPublisher _rabbitMQPublisher;
 
-    public ConsultService(IConsultRepository consultRepository)
+    public ConsultService(IConsultRepository consultRepository, RabbitMQPublisher rabbitMQPublisher)
     {
         _consultRepository = consultRepository;
+        _rabbitMQPublisher = rabbitMQPublisher;
     }
 
     public async Task<IEnumerable<PatientConsultDTO>> GetConsultByPatientIdAsync(int idPatient)
@@ -89,7 +92,6 @@ public class ConsultService : IConsultService
 
     public async Task<int> AddAsync(Consult consult)
     {
-        Console.WriteLine($"ID do paciente: {consult.IdPatient}");
 
         if (string.IsNullOrEmpty(consult.Description))
             throw new ArgumentException("A descrição é obrigatória.");
@@ -113,6 +115,9 @@ public class ConsultService : IConsultService
         };
 
         await _consultRepository.AddAsync(consultNew);
+        var message = JsonSerializer.Serialize(consult);
+        _rabbitMQPublisher.Publish(consult, "ConsultQueue");
+
         return consult.Id;
     }
 
@@ -135,6 +140,9 @@ public class ConsultService : IConsultService
         };
 
         await _consultRepository.UpdateAsync(updatedConsult);
+
+        _rabbitMQPublisher.Publish(updatedConsult, "ConsultUpdateQueue");
+
     }
 
     public async Task CancelAsync(int id)

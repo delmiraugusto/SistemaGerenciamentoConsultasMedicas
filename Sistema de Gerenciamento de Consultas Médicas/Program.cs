@@ -11,6 +11,8 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using Sistema_de_Gerenciamento_de_Consultas_Médicas.Domain.Entities;
+using Sistema_de_Gerenciamento_de_Consultas_Médicas.RabbitMQ;
+using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -31,13 +33,49 @@ builder.Services.AddScoped<IAuthRepository, AuthRepository>();
 builder.Services.Configure<JwtSettings>(builder.Configuration.GetSection("Jwt"));
 builder.Services.AddScoped<IAuthService, AuthService>();
 
+builder.Services.Configure<RabbitMQSettings>(Configuration.GetSection("RabbitMQ"));
+builder.Services.AddSingleton<RabbitMQPublisher>();
+builder.Services.AddHostedService<RabbitMQConsumer>();
+
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+
+builder.Services.AddSwaggerGen(c =>
+{
+
+
+    c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+    {
+        Name = "Authorization",
+        In = ParameterLocation.Header,
+        Type = SecuritySchemeType.ApiKey,
+        Scheme = "Bearer"
+    });
+
+    c.AddSecurityRequirement(new OpenApiSecurityRequirement()
+    {
+    {
+        new OpenApiSecurityScheme
+        {
+        Reference = new OpenApiReference
+            {
+            Type = ReferenceType.SecurityScheme,
+            Id = "Bearer"
+            },
+            Scheme = "oauth2",
+            Name = "Bearer",
+            In = ParameterLocation.Header,
+
+        },
+        new List<string>()
+        }
+    });
+
+
+});
 
 var jwtSecret = builder.Configuration["Jwt:Secret"];
 var jwtExpiration = builder.Configuration["Jwt:ExpirationMinutes"];
-Console.WriteLine($"Chave secreta do JWT: {jwtSecret}"); 
 
 if (string.IsNullOrEmpty(jwtSecret))
 {

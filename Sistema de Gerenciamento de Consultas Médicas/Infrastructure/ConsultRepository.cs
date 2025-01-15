@@ -34,7 +34,7 @@ public class ConsultRepository : IConsultRepository
         FROM Consult c
         JOIN Doctor d ON c.id_doctor = d.id
         JOIN Patient p ON c.id_patient = p.id
-        WHERE c.id_patient = @IdPatient AND c.IsCanceled = false
+        WHERE c.id_patient = @IdPatient
         ORDER BY c.DateTimeQuery;";
 
         using (var connection = _dbConnection.GetConnection())

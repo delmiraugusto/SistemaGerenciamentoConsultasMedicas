@@ -838,7 +838,7 @@
           "Microsoft.AspNetCore.Authentication.JwtBearer": "9.0.0",
           "Microsoft.AspNetCore.OpenApi": "9.0.0",
           "Npgsql": "9.0.2",
-          "RabbitMQ.Client": "7.0.0",
+          "RabbitMQ.Client": "6.8.1",
           "Swashbuckle.AspNetCore": "7.2.0",
           "Swashbuckle.AspNetCore.Swagger": "7.2.0",
           "System.IdentityModel.Tokens.Jwt": "8.3.0"
