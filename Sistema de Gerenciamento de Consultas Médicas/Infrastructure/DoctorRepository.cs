@@ -70,7 +70,6 @@ namespace Sistema_de_Gerenciamento_de_Consultas_Médicas.Domain.Infrastructure
             {
                 try
                 {
-                    Console.WriteLine($"Nome: {doctor.Name}, Especialidade: {doctor.Specialty}");
 
                     var newDoctorId = await connection.ExecuteScalarAsync<int>(query, doctor);
 

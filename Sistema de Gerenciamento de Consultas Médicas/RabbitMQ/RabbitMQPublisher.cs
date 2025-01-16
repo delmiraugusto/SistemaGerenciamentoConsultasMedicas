@@ -14,7 +14,7 @@ public class RabbitMQPublisher
         _settings = settings.Value;
     }
 
-    public void Publish<T>(T message, string queueName)
+    public virtual void Publish<T>(T message, string queueName)
     {
         var factory = new ConnectionFactory
         {

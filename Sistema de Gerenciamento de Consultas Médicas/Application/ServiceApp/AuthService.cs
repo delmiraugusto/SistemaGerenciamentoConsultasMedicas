@@ -45,9 +45,6 @@ public class AuthService : IAuthService
             throw new Exception("Email nao encontrado");
         }
 
-        Console.WriteLine($"PasswordHash: {user.passwordhash}");
-        Console.WriteLine($"Type: {user.type}");
-
         if (loginDTO.password == null || user.passwordhash == null)
         {
             throw new Exception("Senha ou hash de senha não podem ser nulos.");
@@ -151,12 +148,10 @@ public class AuthService : IAuthService
             var token = tokenHandler.CreateToken(tokenDescriptor);
             var jwt = tokenHandler.WriteToken(token);
 
-            Console.WriteLine($"Generated JWT: {jwt}");
             return jwt;
         }
         catch (Exception ex)
         {
-            Console.WriteLine($"Error generating JWT: {ex.Message}");
             throw;
         }
     }

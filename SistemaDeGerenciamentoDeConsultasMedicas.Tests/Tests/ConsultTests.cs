@@ -3,23 +3,32 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.Extensions.Options;
 using Moq;
 using Sistema_de_Gerenciamento_de_Consultas_Médicas.Application.DTO;
 using Sistema_de_Gerenciamento_de_Consultas_Médicas.Application.ServiceApp;
 using Sistema_de_Gerenciamento_de_Consultas_Médicas.Domain.Entities;
 using Sistema_de_Gerenciamento_de_Consultas_Médicas.Domain.IRepository;
+using Sistema_de_Gerenciamento_de_Consultas_Médicas.RabbitMQ;
 
 namespace SistemaDeGerenciamentoDeConsultasMedicas.Tests.Tests;
 
 public class ConsultTests
 {
     private readonly Mock<IConsultRepository> _mockConsultRepository;
+    private readonly Mock<RabbitMQPublisher> _mockRabbitMQPublisher;
     private readonly ConsultService _consultService;
 
     public ConsultTests()
     {
         _mockConsultRepository = new Mock<IConsultRepository>();
-        _consultService = new ConsultService(_mockConsultRepository.Object);
+
+        _mockRabbitMQPublisher = new Mock<RabbitMQPublisher>(MockBehavior.Strict, Mock.Of<IOptions<RabbitMQSettings>>());
+        _mockRabbitMQPublisher
+            .Setup(p => p.Publish(It.IsAny<object>(), It.IsAny<string>()))
+            .Verifiable();
+
+        _consultService = new ConsultService(_mockConsultRepository.Object, _mockRabbitMQPublisher.Object);
     }
 
     [Fact]
@@ -104,6 +113,8 @@ public class ConsultTests
 
         var result = await _consultService.AddAsync(consult);
 
+        _mockRabbitMQPublisher.Verify(p => p.Publish(It.IsAny<Consult>(), "ConsultQueue"), Times.Once);
+
         Assert.Equal(consult.Id, result);
         _mockConsultRepository.Verify(repo => repo.AddAsync(It.IsAny<Consult>()), Times.Once);
     }
@@ -113,7 +124,6 @@ public class ConsultTests
     [Fact]
     public async Task UpdateAsync_Test()
     {
-        
         var existingConsultDTO = new ConsultDTO(
             1,
             "Consulta antiga Test",
@@ -149,6 +159,8 @@ public class ConsultTests
             c.Description == updateDto.Description &&
             c.DateTimeQuery == updateDto.DateTimeQuery &&
             c.IsCanceled == updateDto.IsCanceled)), Times.Once);
+
+        _mockRabbitMQPublisher.Verify(p => p.Publish(It.IsAny<object>(), "ConsultUpdateQueue"), Times.Once);
     }
 
     [Fact]
