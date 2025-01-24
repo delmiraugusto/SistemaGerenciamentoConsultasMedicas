@@ -4,7 +4,7 @@ using Sistema_de_Gerenciamento_de_Consultas_Médicas.Application.DTO;
 using Sistema_de_Gerenciamento_de_Consultas_Médicas.Application.ServiceApp;
 using Sistema_de_Gerenciamento_de_Consultas_Médicas.Domain.IService;
 
-namespace Sistema_de_Gerenciamento_de_Consultas_Médicas.Controllers;
+namespace Sistema_de_Gerenciamento_de_Consultas_Médicas.Presentation.Controllers;
 
 [Route("api/[controller]")]
 [ApiController]

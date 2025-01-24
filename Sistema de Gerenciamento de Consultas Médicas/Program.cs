@@ -1,11 +1,8 @@
 using System.Text.Json.Serialization;
 using System.Text.Json;
 using Sistema_de_Gerenciamento_de_Consultas_Médicas.Application.ServiceApp;
-using Sistema_de_Gerenciamento_de_Consultas_Médicas.Data;
-using Sistema_de_Gerenciamento_de_Consultas_Médicas.Domain.Infrastructure;
 using Sistema_de_Gerenciamento_de_Consultas_Médicas.Domain.IRepository;
 using Sistema_de_Gerenciamento_de_Consultas_Médicas.Domain.IService;
-using Sistema_de_Gerenciamento_de_Consultas_Médicas.Infrastructure;
 using System.Text.Json.Serialization;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
@@ -13,6 +10,8 @@ using System.Text;
 using Sistema_de_Gerenciamento_de_Consultas_Médicas.Domain.Entities;
 using Sistema_de_Gerenciamento_de_Consultas_Médicas.RabbitMQ;
 using Microsoft.OpenApi.Models;
+using Sistema_de_Gerenciamento_de_Consultas_Médicas.Infrastructure.Data;
+using Sistema_de_Gerenciamento_de_Consultas_Médicas.Infrastructure.Repository;
 
 var builder = WebApplication.CreateBuilder(args);
 

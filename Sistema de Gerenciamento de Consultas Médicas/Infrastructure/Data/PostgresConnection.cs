@@ -1,6 +1,6 @@
 ﻿using System.Data;
 using Npgsql;
-namespace Sistema_de_Gerenciamento_de_Consultas_Médicas.Data;
+namespace Sistema_de_Gerenciamento_de_Consultas_Médicas.Infrastructure.Data;
 
 public class PostgresConnection
 {

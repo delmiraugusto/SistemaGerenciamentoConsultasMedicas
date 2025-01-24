@@ -2,11 +2,11 @@
 using System.Text;
 using Dapper;
 using Sistema_de_Gerenciamento_de_Consultas_Médicas.Application.DTO;
-using Sistema_de_Gerenciamento_de_Consultas_Médicas.Data;
 using Sistema_de_Gerenciamento_de_Consultas_Médicas.Domain.IRepository;
+using Sistema_de_Gerenciamento_de_Consultas_Médicas.Infrastructure.Data;
 using static System.Net.Mime.MediaTypeNames;
 
-namespace Sistema_de_Gerenciamento_de_Consultas_Médicas.Infrastructure;
+namespace Sistema_de_Gerenciamento_de_Consultas_Médicas.Infrastructure.Repository;
 
 public class AuthRepository : IAuthRepository
 {

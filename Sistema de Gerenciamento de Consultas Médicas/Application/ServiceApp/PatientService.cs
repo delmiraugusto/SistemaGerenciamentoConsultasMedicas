@@ -2,7 +2,6 @@
 using System.Security.Cryptography.X509Certificates;
 using Sistema_de_Gerenciamento_de_Consultas_Médicas.Application.DTO;
 using Sistema_de_Gerenciamento_de_Consultas_Médicas.Domain.Entities;
-using Sistema_de_Gerenciamento_de_Consultas_Médicas.Domain.Infrastructure;
 using Sistema_de_Gerenciamento_de_Consultas_Médicas.Domain.IRepository;
 using Sistema_de_Gerenciamento_de_Consultas_Médicas.Domain.IService;
 

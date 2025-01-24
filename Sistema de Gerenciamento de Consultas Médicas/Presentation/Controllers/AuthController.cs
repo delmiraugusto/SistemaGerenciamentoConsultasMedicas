@@ -6,7 +6,7 @@ using Sistema_de_Gerenciamento_de_Consultas_Médicas.Domain.IService;
 
 
 
-namespace Sistema_de_Gerenciamento_de_Consultas_Médicas.Controllers;
+namespace Sistema_de_Gerenciamento_de_Consultas_Médicas.Presentation.Controllers;
 
 [ApiController]
 [Route("api/auth")]
@@ -30,7 +30,7 @@ public class AuthController : ControllerBase
         }
 
         try
-        { 
+        {
             var token = await _authService.Login(loginDTO);
             return Ok(token);
         }

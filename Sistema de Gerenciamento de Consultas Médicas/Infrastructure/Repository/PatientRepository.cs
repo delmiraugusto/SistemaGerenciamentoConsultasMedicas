@@ -2,11 +2,11 @@
 using System.Security.Cryptography;
 using System.Text;
 using Dapper;
-using Sistema_de_Gerenciamento_de_Consultas_Médicas.Data;
 using Sistema_de_Gerenciamento_de_Consultas_Médicas.Domain.Entities;
 using Sistema_de_Gerenciamento_de_Consultas_Médicas.Domain.IRepository;
+using Sistema_de_Gerenciamento_de_Consultas_Médicas.Infrastructure.Data;
 
-namespace Sistema_de_Gerenciamento_de_Consultas_Médicas.Domain.Infrastructure
+namespace Sistema_de_Gerenciamento_de_Consultas_Médicas.Infrastructure.Repository
 {
     public class PatientRepository : IPatientRepository
     {

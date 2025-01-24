@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Moq;
 using Sistema_de_Gerenciamento_de_Consultas_Médicas.Application.DTO;
-using Sistema_de_Gerenciamento_de_Consultas_Médicas.Controllers;
 using Sistema_de_Gerenciamento_de_Consultas_Médicas.Domain.Entities;
 using Sistema_de_Gerenciamento_de_Consultas_Médicas.Domain.IService;
+using Sistema_de_Gerenciamento_de_Consultas_Médicas.Presentation.Controllers;
 
 namespace SistemaDeGerenciamentoDeConsultasMedicas.Tests.Tests;
 

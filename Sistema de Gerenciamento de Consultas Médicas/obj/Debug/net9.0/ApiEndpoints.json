@@ -1,6 +1,6 @@
 [
   {
-    "ContainingType": "Sistema_de_Gerenciamento_de_Consultas_M\u00E9dicas.Controllers.AuthController",
+    "ContainingType": "Sistema_de_Gerenciamento_de_Consultas_M\u00E9dicas.Presentation.Controllers.AuthController",
     "Method": "Login",
     "RelativePath": "api/auth/login",
     "HttpMethod": "POST",
@@ -16,7 +16,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "Sistema_de_Gerenciamento_de_Consultas_M\u00E9dicas.Controllers.AuthController",
+    "ContainingType": "Sistema_de_Gerenciamento_de_Consultas_M\u00E9dicas.Presentation.Controllers.AuthController",
     "Method": "signUp",
     "RelativePath": "api/auth/signUp",
     "HttpMethod": "POST",
@@ -32,7 +32,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "Sistema_de_Gerenciamento_de_Consultas_M\u00E9dicas.Controllers.ConsultController",
+    "ContainingType": "Sistema_de_Gerenciamento_de_Consultas_M\u00E9dicas.Presentation.Controllers.ConsultController",
     "Method": "Add",
     "RelativePath": "api/Consult",
     "HttpMethod": "POST",
@@ -48,7 +48,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "Sistema_de_Gerenciamento_de_Consultas_M\u00E9dicas.Controllers.ConsultController",
+    "ContainingType": "Sistema_de_Gerenciamento_de_Consultas_M\u00E9dicas.Presentation.Controllers.ConsultController",
     "Method": "GetById",
     "RelativePath": "api/Consult/{id}",
     "HttpMethod": "GET",
@@ -74,7 +74,7 @@
     ]
   },
   {
-    "ContainingType": "Sistema_de_Gerenciamento_de_Consultas_M\u00E9dicas.Controllers.ConsultController",
+    "ContainingType": "Sistema_de_Gerenciamento_de_Consultas_M\u00E9dicas.Presentation.Controllers.ConsultController",
     "Method": "Update",
     "RelativePath": "api/Consult/{id}",
     "HttpMethod": "PUT",
@@ -95,7 +95,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "Sistema_de_Gerenciamento_de_Consultas_M\u00E9dicas.Controllers.ConsultController",
+    "ContainingType": "Sistema_de_Gerenciamento_de_Consultas_M\u00E9dicas.Presentation.Controllers.ConsultController",
     "Method": "Delete",
     "RelativePath": "api/Consult/{id}",
     "HttpMethod": "DELETE",
@@ -111,7 +111,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "Sistema_de_Gerenciamento_de_Consultas_M\u00E9dicas.Controllers.ConsultController",
+    "ContainingType": "Sistema_de_Gerenciamento_de_Consultas_M\u00E9dicas.Presentation.Controllers.ConsultController",
     "Method": "GetConsultByDoctor",
     "RelativePath": "api/Consult/doctorConsults/{doctorId}",
     "HttpMethod": "GET",
@@ -137,7 +137,7 @@
     ]
   },
   {
-    "ContainingType": "Sistema_de_Gerenciamento_de_Consultas_M\u00E9dicas.Controllers.ConsultController",
+    "ContainingType": "Sistema_de_Gerenciamento_de_Consultas_M\u00E9dicas.Presentation.Controllers.ConsultController",
     "Method": "GetConsultByPatient",
     "RelativePath": "api/Consult/patientConsults/{pacienteId}",
     "HttpMethod": "GET",
@@ -163,7 +163,7 @@
     ]
   },
   {
-    "ContainingType": "Sistema_de_Gerenciamento_de_Consultas_M\u00E9dicas.Controllers.DoctorController",
+    "ContainingType": "Sistema_de_Gerenciamento_de_Consultas_M\u00E9dicas.Presentation.Controllers.DoctorController",
     "Method": "GetAllAsync",
     "RelativePath": "api/Doctor",
     "HttpMethod": "GET",
@@ -183,7 +183,7 @@
     ]
   },
   {
-    "ContainingType": "Sistema_de_Gerenciamento_de_Consultas_M\u00E9dicas.Controllers.DoctorController",
+    "ContainingType": "Sistema_de_Gerenciamento_de_Consultas_M\u00E9dicas.Presentation.Controllers.DoctorController",
     "Method": "GetById",
     "RelativePath": "api/Doctor/{id}",
     "HttpMethod": "GET",
@@ -209,7 +209,7 @@
     ]
   },
   {
-    "ContainingType": "Sistema_de_Gerenciamento_de_Consultas_M\u00E9dicas.Controllers.DoctorController",
+    "ContainingType": "Sistema_de_Gerenciamento_de_Consultas_M\u00E9dicas.Presentation.Controllers.DoctorController",
     "Method": "Update",
     "RelativePath": "api/Doctor/{id}",
     "HttpMethod": "PUT",
@@ -230,7 +230,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "Sistema_de_Gerenciamento_de_Consultas_M\u00E9dicas.Controllers.DoctorController",
+    "ContainingType": "Sistema_de_Gerenciamento_de_Consultas_M\u00E9dicas.Presentation.Controllers.DoctorController",
     "Method": "Cancel",
     "RelativePath": "api/Doctor/{id}",
     "HttpMethod": "DELETE",
@@ -246,7 +246,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "Sistema_de_Gerenciamento_de_Consultas_M\u00E9dicas.Controllers.DoctorController",
+    "ContainingType": "Sistema_de_Gerenciamento_de_Consultas_M\u00E9dicas.Presentation.Controllers.DoctorController",
     "Method": "GetByEmail",
     "RelativePath": "api/Doctor/email/{email}",
     "HttpMethod": "GET",
@@ -272,7 +272,7 @@
     ]
   },
   {
-    "ContainingType": "Sistema_de_Gerenciamento_de_Consultas_M\u00E9dicas.Controllers.PatientController",
+    "ContainingType": "Sistema_de_Gerenciamento_de_Consultas_M\u00E9dicas.Presentation.Controllers.PatientController",
     "Method": "GetAllAsync",
     "RelativePath": "api/Patient",
     "HttpMethod": "GET",
@@ -292,7 +292,7 @@
     ]
   },
   {
-    "ContainingType": "Sistema_de_Gerenciamento_de_Consultas_M\u00E9dicas.Controllers.PatientController",
+    "ContainingType": "Sistema_de_Gerenciamento_de_Consultas_M\u00E9dicas.Presentation.Controllers.PatientController",
     "Method": "GetById",
     "RelativePath": "api/Patient/{id}",
     "HttpMethod": "GET",
@@ -318,7 +318,7 @@
     ]
   },
   {
-    "ContainingType": "Sistema_de_Gerenciamento_de_Consultas_M\u00E9dicas.Controllers.PatientController",
+    "ContainingType": "Sistema_de_Gerenciamento_de_Consultas_M\u00E9dicas.Presentation.Controllers.PatientController",
     "Method": "Update",
     "RelativePath": "api/Patient/{id}",
     "HttpMethod": "PUT",
@@ -339,7 +339,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "Sistema_de_Gerenciamento_de_Consultas_M\u00E9dicas.Controllers.PatientController",
+    "ContainingType": "Sistema_de_Gerenciamento_de_Consultas_M\u00E9dicas.Presentation.Controllers.PatientController",
     "Method": "Delete",
     "RelativePath": "api/Patient/{id}",
     "HttpMethod": "DELETE",
@@ -355,7 +355,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "Sistema_de_Gerenciamento_de_Consultas_M\u00E9dicas.Controllers.PatientController",
+    "ContainingType": "Sistema_de_Gerenciamento_de_Consultas_M\u00E9dicas.Presentation.Controllers.PatientController",
     "Method": "GetByEmail",
     "RelativePath": "api/Patient/emailPatient/{email}",
     "HttpMethod": "GET",

@@ -2,11 +2,11 @@
 using System.Security.Cryptography;
 using System.Text;
 using Dapper;
-using Sistema_de_Gerenciamento_de_Consultas_Médicas.Data;
 using Sistema_de_Gerenciamento_de_Consultas_Médicas.Domain.Entities;
 using Sistema_de_Gerenciamento_de_Consultas_Médicas.Domain.IRepository;
+using Sistema_de_Gerenciamento_de_Consultas_Médicas.Infrastructure.Data;
 
-namespace Sistema_de_Gerenciamento_de_Consultas_Médicas.Domain.Infrastructure
+namespace Sistema_de_Gerenciamento_de_Consultas_Médicas.Infrastructure.Repository
 {
     public class DoctorRepository : IDoctorRepository
     {
@@ -61,9 +61,9 @@ namespace Sistema_de_Gerenciamento_de_Consultas_Médicas.Domain.Infrastructure
 
         public async Task<Doctor> AddAsync(Doctor doctor)
         {
-            var query = 
+            var query =
                 "INSERT INTO Doctor (Name, Email, PasswordHash, Telephone, Crm, Specialty, Cpf)" +
-                    "VALUES (@Name, @Email, @PasswordHash, @Telephone, @Crm, @Specialty, @Cpf)" + 
+                    "VALUES (@Name, @Email, @PasswordHash, @Telephone, @Crm, @Specialty, @Cpf)" +
                 "RETURNING Id";
 
             using (var connection = _dbConnection.GetConnection())

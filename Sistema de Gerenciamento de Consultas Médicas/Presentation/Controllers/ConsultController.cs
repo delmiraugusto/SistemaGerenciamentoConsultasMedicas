@@ -4,11 +4,11 @@ using Sistema_de_Gerenciamento_de_Consultas_Médicas.Application.DTO;
 using Sistema_de_Gerenciamento_de_Consultas_Médicas.Domain.Entities;
 using Sistema_de_Gerenciamento_de_Consultas_Médicas.Domain.IService;
 
-namespace Sistema_de_Gerenciamento_de_Consultas_Médicas.Controllers;
+namespace Sistema_de_Gerenciamento_de_Consultas_Médicas.Presentation.Controllers;
 [Route("api/[controller]")]
 [ApiController]
 public class ConsultController : ControllerBase
-{   
+{
     private readonly IConsultService _consultService;
 
     public ConsultController(IConsultService consultService)
@@ -44,7 +44,7 @@ public class ConsultController : ControllerBase
 
             return Ok(formattedConsults);
         }
-        catch(Exception ex)
+        catch (Exception ex)
         {
             return StatusCode(500, $"Nenhuma consulta para o paciente com o Id: {ex.Message}");
         }
