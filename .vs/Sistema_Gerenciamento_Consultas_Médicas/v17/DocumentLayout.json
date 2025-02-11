@@ -3,12 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\Augusto\\Documents\\TrabalhoT2m\\Sistema de Gerenciamento de Consultas M\u00E9dicas\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{DCC68A47-DCD1-4236-96B1-89E6A66C0E16}|SistemaDeGerenciamentoDeConsultasMedicas.Tests\\SistemaDeGerenciamentoDeConsultasMedicas.Tests.csproj|c:\\users\\augusto\\documents\\trabalhot2m\\sistema de gerenciamento de consultas m\u00E9dicas\\sistemadegerenciamentodeconsultasmedicas.tests\\tests\\doctortest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DCC68A47-DCD1-4236-96B1-89E6A66C0E16}|SistemaDeGerenciamentoDeConsultasMedicas.Tests\\SistemaDeGerenciamentoDeConsultasMedicas.Tests.csproj|solutionrelative:sistemadegerenciamentodeconsultasmedicas.tests\\tests\\doctortest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{DCC68A47-DCD1-4236-96B1-89E6A66C0E16}|SistemaDeGerenciamentoDeConsultasMedicas.Tests\\SGCM.tests.csproj|c:\\users\\augusto\\documents\\trabalhot2m\\sistema de gerenciamento de consultas m\u00E9dicas\\sistemadegerenciamentodeconsultasmedicas.tests\\tests\\doctortest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DCC68A47-DCD1-4236-96B1-89E6A66C0E16}|SistemaDeGerenciamentoDeConsultasMedicas.Tests\\SGCM.tests.csproj|solutionrelative:sistemadegerenciamentodeconsultasmedicas.tests\\tests\\doctortest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{48465C81-CC4F-4443-8F67-2211165F295C}|Sistema de Gerenciamento de Consultas M\u00E9dicas\\Sistema de Gerenciamento de Consultas M\u00E9dicas.csproj|c:\\users\\augusto\\documents\\trabalhot2m\\sistema de gerenciamento de consultas m\u00E9dicas\\sistema de gerenciamento de consultas m\u00E9dicas\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{48465C81-CC4F-4443-8F67-2211165F295C}|Sistema de Gerenciamento de Consultas M\u00E9dicas\\Sistema de Gerenciamento de Consultas M\u00E9dicas.csproj|solutionrelative:sistema de gerenciamento de consultas m\u00E9dicas\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{48465C81-CC4F-4443-8F67-2211165F295C}|Sistema de Gerenciamento de Consultas M\u00E9dicas\\SGCM.csproj|c:\\users\\augusto\\documents\\trabalhot2m\\sistema de gerenciamento de consultas m\u00E9dicas\\sistema de gerenciamento de consultas m\u00E9dicas\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{48465C81-CC4F-4443-8F67-2211165F295C}|Sistema de Gerenciamento de Consultas M\u00E9dicas\\SGCM.csproj|solutionrelative:sistema de gerenciamento de consultas m\u00E9dicas\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -36,7 +36,7 @@
               "RelativeDocumentMoniker": "SistemaDeGerenciamentoDeConsultasMedicas.Tests\\Tests\\DoctorTest.cs",
               "ToolTip": "C:\\Users\\Augusto\\Documents\\TrabalhoT2m\\Sistema de Gerenciamento de Consultas M\u00E9dicas\\SistemaDeGerenciamentoDeConsultasMedicas.Tests\\Tests\\DoctorTest.cs",
               "RelativeToolTip": "SistemaDeGerenciamentoDeConsultasMedicas.Tests\\Tests\\DoctorTest.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAABEAAAAAAAAAA==",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAAC8AAAAfAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-24T02:16:36.65Z",
               "EditorCaption": ""
@@ -49,10 +49,9 @@
               "RelativeDocumentMoniker": "Sistema de Gerenciamento de Consultas M\u00E9dicas\\Program.cs",
               "ToolTip": "C:\\Users\\Augusto\\Documents\\TrabalhoT2m\\Sistema de Gerenciamento de Consultas M\u00E9dicas\\Sistema de Gerenciamento de Consultas M\u00E9dicas\\Program.cs",
               "RelativeToolTip": "Sistema de Gerenciamento de Consultas M\u00E9dicas\\Program.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAIBJwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-20T18:55:49.668Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-20T18:55:49.668Z"
             }
           ]
         }

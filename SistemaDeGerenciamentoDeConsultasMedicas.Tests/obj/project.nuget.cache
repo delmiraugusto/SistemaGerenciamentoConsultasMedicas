@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "nxLWwnvaEQU=",
+  "dgSpecHash": "g6E2MFQJhsU=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Augusto\\Documents\\TrabalhoT2m\\Sistema de Gerenciamento de Consultas Médicas\\SistemaDeGerenciamentoDeConsultasMedicas.Tests\\SistemaDeGerenciamentoDeConsultasMedicas.Tests.csproj",
+  "projectFilePath": "C:\\Users\\Augusto\\Documents\\TrabalhoT2m\\Sistema de Gerenciamento de Consultas Médicas\\SistemaDeGerenciamentoDeConsultasMedicas.Tests\\SGCM.tests.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Augusto\\.nuget\\packages\\bcrypt.net-next\\4.0.3\\bcrypt.net-next.4.0.3.nupkg.sha512",
     "C:\\Users\\Augusto\\.nuget\\packages\\castle.core\\5.1.1\\castle.core.5.1.1.nupkg.sha512",

@@ -822,7 +822,7 @@
           "build/net6.0/xunit.runner.visualstudio.props": {}
         }
       },
-      "Sistema de Gerenciamento de Consultas Médicas/1.0.0": {
+      "SGCM/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v9.0",
         "dependencies": {
@@ -837,10 +837,10 @@
           "System.IdentityModel.Tokens.Jwt": "8.3.0"
         },
         "compile": {
-          "bin/placeholder/Sistema de Gerenciamento de Consultas Médicas.dll": {}
+          "bin/placeholder/SGCM.dll": {}
         },
         "runtime": {
-          "bin/placeholder/Sistema de Gerenciamento de Consultas Médicas.dll": {}
+          "bin/placeholder/SGCM.dll": {}
         },
         "frameworkReferences": [
           "Microsoft.AspNetCore.App"
@@ -2212,10 +2212,10 @@
         "xunit.runner.visualstudio.nuspec"
       ]
     },
-    "Sistema de Gerenciamento de Consultas Médicas/1.0.0": {
+    "SGCM/1.0.0": {
       "type": "project",
-      "path": "../Sistema de Gerenciamento de Consultas Médicas/Sistema de Gerenciamento de Consultas Médicas.csproj",
-      "msbuildProject": "../Sistema de Gerenciamento de Consultas Médicas/Sistema de Gerenciamento de Consultas Médicas.csproj"
+      "path": "../Sistema de Gerenciamento de Consultas Médicas/SGCM.csproj",
+      "msbuildProject": "../Sistema de Gerenciamento de Consultas Médicas/SGCM.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -2223,7 +2223,7 @@
       "Microsoft.NET.Test.Sdk >= 17.11.1",
       "Moq >= 4.20.72",
       "RabbitMQ.Client >= 6.8.1",
-      "Sistema de Gerenciamento de Consultas Médicas >= 1.0.0",
+      "SGCM >= 1.0.0",
       "coverlet.collector >= 6.0.2",
       "xunit >= 2.9.2",
       "xunit.runner.visualstudio >= 2.8.2"
@@ -2236,9 +2236,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Augusto\\Documents\\TrabalhoT2m\\Sistema de Gerenciamento de Consultas Médicas\\SistemaDeGerenciamentoDeConsultasMedicas.Tests\\SistemaDeGerenciamentoDeConsultasMedicas.Tests.csproj",
-      "projectName": "SistemaDeGerenciamentoDeConsultasMedicas.Tests",
-      "projectPath": "C:\\Users\\Augusto\\Documents\\TrabalhoT2m\\Sistema de Gerenciamento de Consultas Médicas\\SistemaDeGerenciamentoDeConsultasMedicas.Tests\\SistemaDeGerenciamentoDeConsultasMedicas.Tests.csproj",
+      "projectUniqueName": "C:\\Users\\Augusto\\Documents\\TrabalhoT2m\\Sistema de Gerenciamento de Consultas Médicas\\SistemaDeGerenciamentoDeConsultasMedicas.Tests\\SGCM.tests.csproj",
+      "projectName": "SGCM.tests",
+      "projectPath": "C:\\Users\\Augusto\\Documents\\TrabalhoT2m\\Sistema de Gerenciamento de Consultas Médicas\\SistemaDeGerenciamentoDeConsultasMedicas.Tests\\SGCM.tests.csproj",
       "packagesPath": "C:\\Users\\Augusto\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\Augusto\\Documents\\TrabalhoT2m\\Sistema de Gerenciamento de Consultas Médicas\\SistemaDeGerenciamentoDeConsultasMedicas.Tests\\obj\\",
       "projectStyle": "PackageReference",
@@ -2261,8 +2261,8 @@
         "net9.0": {
           "targetAlias": "net9.0",
           "projectReferences": {
-            "C:\\Users\\Augusto\\Documents\\TrabalhoT2m\\Sistema de Gerenciamento de Consultas Médicas\\Sistema de Gerenciamento de Consultas Médicas\\Sistema de Gerenciamento de Consultas Médicas.csproj": {
-              "projectPath": "C:\\Users\\Augusto\\Documents\\TrabalhoT2m\\Sistema de Gerenciamento de Consultas Médicas\\Sistema de Gerenciamento de Consultas Médicas\\Sistema de Gerenciamento de Consultas Médicas.csproj"
+            "C:\\Users\\Augusto\\Documents\\TrabalhoT2m\\Sistema de Gerenciamento de Consultas Médicas\\Sistema de Gerenciamento de Consultas Médicas\\SGCM.csproj": {
+              "projectPath": "C:\\Users\\Augusto\\Documents\\TrabalhoT2m\\Sistema de Gerenciamento de Consultas Médicas\\Sistema de Gerenciamento de Consultas Médicas\\SGCM.csproj"
             }
           }
         }

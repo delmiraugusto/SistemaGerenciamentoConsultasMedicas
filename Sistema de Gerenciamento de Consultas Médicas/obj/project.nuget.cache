@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "jonfe8KuesU=",
+  "dgSpecHash": "6jXmKoD7hAg=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Augusto\\Documents\\TrabalhoT2m\\Sistema de Gerenciamento de Consultas Médicas\\Sistema de Gerenciamento de Consultas Médicas\\Sistema de Gerenciamento de Consultas Médicas.csproj",
+  "projectFilePath": "C:\\Users\\Augusto\\Documents\\TrabalhoT2m\\Sistema de Gerenciamento de Consultas Médicas\\Sistema de Gerenciamento de Consultas Médicas\\SGCM.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Augusto\\.nuget\\packages\\bcrypt.net-next\\4.0.3\\bcrypt.net-next.4.0.3.nupkg.sha512",
     "C:\\Users\\Augusto\\.nuget\\packages\\dapper\\2.1.35\\dapper.2.1.35.nupkg.sha512",

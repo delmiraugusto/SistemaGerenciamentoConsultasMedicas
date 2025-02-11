@@ -4,12 +4,12 @@
     "C:\\Users\\Augusto\\Documents\\TrabalhoT2m\\Sistema de Gerenciamento de Consultas Médicas\\SistemaDeGerenciamentoDeConsultasMedicas.Tests\\SistemaDeGerenciamentoDeConsultasMedicas.Tests.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Augusto\\Documents\\TrabalhoT2m\\Sistema de Gerenciamento de Consultas Médicas\\Sistema de Gerenciamento de Consultas Médicas\\Sistema de Gerenciamento de Consultas Médicas.csproj": {
+    "C:\\Users\\Augusto\\Documents\\TrabalhoT2m\\Sistema de Gerenciamento de Consultas Médicas\\Sistema de Gerenciamento de Consultas Médicas\\SGCM.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Augusto\\Documents\\TrabalhoT2m\\Sistema de Gerenciamento de Consultas Médicas\\Sistema de Gerenciamento de Consultas Médicas\\Sistema de Gerenciamento de Consultas Médicas.csproj",
-        "projectName": "Sistema de Gerenciamento de Consultas Médicas",
-        "projectPath": "C:\\Users\\Augusto\\Documents\\TrabalhoT2m\\Sistema de Gerenciamento de Consultas Médicas\\Sistema de Gerenciamento de Consultas Médicas\\Sistema de Gerenciamento de Consultas Médicas.csproj",
+        "projectUniqueName": "C:\\Users\\Augusto\\Documents\\TrabalhoT2m\\Sistema de Gerenciamento de Consultas Médicas\\Sistema de Gerenciamento de Consultas Médicas\\SGCM.csproj",
+        "projectName": "SGCM",
+        "projectPath": "C:\\Users\\Augusto\\Documents\\TrabalhoT2m\\Sistema de Gerenciamento de Consultas Médicas\\Sistema de Gerenciamento de Consultas Médicas\\SGCM.csproj",
         "packagesPath": "C:\\Users\\Augusto\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\Augusto\\Documents\\TrabalhoT2m\\Sistema de Gerenciamento de Consultas Médicas\\Sistema de Gerenciamento de Consultas Médicas\\obj\\",
         "projectStyle": "PackageReference",
@@ -138,8 +138,8 @@
           "net9.0": {
             "targetAlias": "net9.0",
             "projectReferences": {
-              "C:\\Users\\Augusto\\Documents\\TrabalhoT2m\\Sistema de Gerenciamento de Consultas Médicas\\Sistema de Gerenciamento de Consultas Médicas\\Sistema de Gerenciamento de Consultas Médicas.csproj": {
-                "projectPath": "C:\\Users\\Augusto\\Documents\\TrabalhoT2m\\Sistema de Gerenciamento de Consultas Médicas\\Sistema de Gerenciamento de Consultas Médicas\\Sistema de Gerenciamento de Consultas Médicas.csproj"
+              "C:\\Users\\Augusto\\Documents\\TrabalhoT2m\\Sistema de Gerenciamento de Consultas Médicas\\Sistema de Gerenciamento de Consultas Médicas\\SGCM.csproj": {
+                "projectPath": "C:\\Users\\Augusto\\Documents\\TrabalhoT2m\\Sistema de Gerenciamento de Consultas Médicas\\Sistema de Gerenciamento de Consultas Médicas\\SGCM.csproj"
               }
             }
           }

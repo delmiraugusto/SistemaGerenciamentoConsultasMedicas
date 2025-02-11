@@ -17,7 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Sistema de Gerenciamento de Consultas Médicas\Sistema de Gerenciamento de Consultas Médicas.csproj" />
+    <ProjectReference Include="..\Sistema de Gerenciamento de Consultas Médicas\SGCM.csproj" />
   </ItemGroup>
 
   <ItemGroup>
