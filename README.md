@@ -39,8 +39,6 @@ Bônus (Diferencial):
 │   │  │   ├── ConsultService.cs     # Serviço para consultas
 │   │  │   ├── DoctorService.cs      # Serviço para médicos
 │   │  │   ├── PatientService.cs     # Serviço para pacientes
-│   │  ├── Data/                     # Camada de dados
-│   │  │   ├── PostgresConnection.cs # Conexão com o banco PostgreSQL
 │   ├── Domain/                      # Camada de domínio
 │   │  ├── Entities/                 # Entidades do domínio
 │   │  │   ├── Consult.cs            # Entidade de consultas
@@ -59,11 +57,14 @@ Bônus (Diferencial):
 │   │  │   ├── IConsultService.cs    # Interface para consultas
 │   │  │   ├── IDoctorService.cs     # Interface para médicos
 │   │  │   ├── IPatientService.cs    # Interface para pacientes
-│   ├── Infrastructure/              # Implementações de repositórios
-│   │  ├── AuthRepository.cs         # Repositório de autenticação
-│   │  ├── ConsultRepository.cs      # Repositório de consultas
-│   │  ├── DoctorRepository.cs       # Repositório de médicos
-│   │  ├── PatientRepository.cs      # Repositório de pacientes
+│   ├── Infrastructure/              # Camada de repositórios e Banco de Dados
+│   │  ├── Data/                     # Camada de dados
+│   │  |   ├── PostgresConnection.cs # Conexão com o banco PostgreSQL
+|   |  ├── Repository/               # Repositórios
+│   │  |   ├── AuthRepository.cs     # Repositório de autenticação
+│   │  |   ├── ConsultRepository.cs  # Repositório de consultas
+│   │  |   ├── DoctorRepository.cs   # Repositório de médicos
+│   │  |   ├── PatientRepository.cs  # Repositório de pacientes
 │   ├── RabbitMQ/                    # Configurações do RabbitMQ
 │   │  ├── RabbitMQConsumer.cs       # Consumidor RabbitMQ
 │   │  ├── RabbitMQPublisher.cs      # Publicador RabbitMQ
